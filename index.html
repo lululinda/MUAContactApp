@@ -40,7 +40,7 @@
   
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" name="seleccion">
 				<span class="contact100-form-title">
 				    <h2> Mujeres Unidas y Activas (MUA)</h2>
 				    <h3>Una mujer a la vez...</h3>
@@ -93,7 +93,7 @@
 					<span class="label-input100"><h4>Programas de MUA *</h4></span>
 				     <div>
 						<select class="js-select2" name="Programas">
-							<option>Por favor seleccione</option>
+							<option>Seleccione 1 a 3</option>
 						</select>
 						<div class="dropDownSelect2"></div>
 				      </div>
@@ -103,25 +103,25 @@
 						<span class="label-input100"><h5>Preparacion para el Trabajo</h5></span>
 
 						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="radio1" type="radio" name="type-programas" value="physical">
-							<label class="label-radio100" for="radio1">
+							<input class="input-radio100" id="trabajos" type="checkbox" name="type-programas" value="trabajos">
+							<label class="label-radio100" for="trabajos">
 								Limpieza de casas con productos naturales
 							</label>
 						</div>
 
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio2" type="radio" name="type-programas" value="digital">
-							<label class="label-radio100" for="radio2">
+							<input class="input-radio100" id="etapas" type="checkbox" name="type-programas" value="etapas">
+							<label class="label-radio100" for="etapas">
 								 Etapas de los niños
 							</label>
 						</div>
 
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio3" type="radio" name="type-programas" value="programas">
-							<label class="label-radio100" for="radio3">
+							<input class="input-radio100" id="educacion" type="checkbox" name="type-programas" value="educacion">
+							<label class="label-radio100" for="educacion">
 								Educacion financiera
 							</label>
-						</div>
+						 </div>
                         <div class="contact100-form-range-bar">
 						</div>
 						
@@ -130,34 +130,34 @@
 						<span class="label-input100"><h5>Programa de Apoyo</h5></span>
 
 						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="radio4" type="radio" name="stype-product" value="physical" checked="checked">
-							<label class="label-radio100" for="radio4">
+							<input class="input-radio100" id="domestica" type="checkbox" name="type-apoyo" value="physical">
+							<label class="label-radio100" for="domestica">
 								 Violencia domestica
 							</label>
 						</div>
 
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio2" type="radio" name="type-programas" value="digital">
-							<label class="label-radio100" for="radio2">
+							<input class="input-radio100" id="AS" type="checkbox" name="type-apoyo" value="physical">
+							<label class="label-radio100" for="AS">
 								  Asalto Sexual
 							</label>
 						</div>
 
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio3" type="radio" name="type-programas" value="programas">
-							<label class="label-radio100" for="radio3">
+							<input class="input-radio100" id="autoestima" type="checkbox" name="type-apoyo" value="physical">
+							<label class="label-radio100" for="autoestima">
 								 Autoestima
 							</label>
 						</div>
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio4" type="radio" name="type-programas" value="programas">
-							<label class="label-radio100" for="radio4">
+							<input class="input-radio100" id="salud" type="checkbox" name="type-apoyo" value="physical">
+							<label class="label-radio100" for="salud">
 								 Salud Reproductiva
 							</label>
 						</div>
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio5" type="radio" name="type-programas" value="programas">
-							<label class="label-radio100" for="radio5">
+							<input class="input-radio100" id="sana" type="checkbox" name="type-apoyo" value="physical">
+							<label class="label-radio100" for="sana">
 								 Alimentacion Sana
 							</label>
 						</div>
@@ -169,28 +169,28 @@
 						<span class="label-input100"><h5>Campaña</h5></span>
 
 						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="radio1" type="radio" name="stype-product" value="physical" checked="checked">
-							<label class="label-radio100" for="radio1">
+							<input class="input-radio100" id="CPR" type="checkbox" name="campaña" value="CPR">
+							<label class="label-radio100" for="CPR">
 								Taller CPR (RCP)
 							</label>
 						</div>
 
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio2" type="radio" name="type-programas" value="digital">
-							<label class="label-radio100" for="radio2">
+							<input class="input-radio100" id="universidad" type="checkbox" name="campaña" value="universidad">
+							<label class="label-radio100" for="universidad">
 								 Universidad MUA
 							</label>
 						 </div>
 
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio3" type="radio" name="type-programas" value="programas">
-							<label class="label-radio100" for="radio3">
-								Conozca sus Derechos (Imigracion)
+							<input class="input-radio100" id="inmigracion" type="checkbox" name="campaña" value="inmigracion">
+							<label class="label-radio100" for="inmigracion">
+								Conozca sus Derechos (Inmigracion)
 							</label>
 						</div>
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio4" type="radio" name="type-programas" value="programas">
-							<label class="label-radio100" for="radio4">
+							<input class="input-radio100" id="hogar" type="checkbox" name="campaña" value="hogar">
+							<label class="label-radio100" for="hogar">
 								Trabajadoras del Hogar
 							</label>
 						</div>
@@ -199,8 +199,8 @@
 						<span class="label-input100"><h5>Recaudacion de Fondos</h5></span>
 
 						<div class="contact100-form-radio m-t-15">
-					  <input class="input-radio100" id="radio1" type="radio" name="stype-product" value="physical" checked="checked">
-							<label class="label-radio100" for="radio1">
+					  <input class="input-radio100" id="recaudacion" type="checkbox" name="participacion" value="recaudacion">
+							<label class="label-radio100" for="recaudacion">
 								Comite de Recaudacion (Participacion)
 							</label>
 						</div>
@@ -255,6 +255,7 @@
 	
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
