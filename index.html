@@ -263,7 +263,66 @@
 		})
 	</script>
 <!--===============================================================================================-->
+<!--
+	Se agrega la libreria completa de Firebase, ya que este
+	produccion se cambia solo las funciones que se necessitan.
+-->
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<script>
+  // Initializar todo Firebase, esta detalles estan dentro de
+  // https://console.firebase.google.com/project/muachile-81afe/settings/general/
+  var config = {
+    apiKey: "AIzaSyAU8lvzdRC5QA_CzCaB2NdpSs8kWAOWRyQ",
+    authDomain: "muachile-81afe.firebaseapp.com",
+    databaseURL: "https://muachile-81afe.firebaseio.com",
+    projectId: "muachile-81afe",
+    storageBucket: "muachile-81afe.appspot.com",
+    messagingSenderId: "157612617310"
+  };
+  firebase.initializeApp(config);
 
+  // Si obtiene una referencia a la base de datos
+  // aqui se obtienen directamente del DOM
+  var database = firebase.database();
+
+  // Funcion que guarda los datos
+  // TODO: Faltan los demas Fields
+	function writeSignIn(newSignInId) {
+		firebase.database().ref('signins/' + newSignInId ).set({
+			name: document.getElementById("name").value,
+			apeido: document.getElementById("apeido").value,
+			creado: firebase.database.ServerValue.TIMESTAMP   //quizas usar otro formato mas claro
+		}, function(error) {
+			if (error) {
+				console.log( error );
+			} else {
+				console.log( 'Se guardo, yay !' );
+			}
+		});
+	}
+
+	// Obtener elemento buton de finalizar
+	var finalizarButton = document.getElementById('finalizar');
+
+	// En finalizar, se guardan los datos a firebase
+	finalizarButton.addEventListener('click', function(e) {
+		//Para que no se mueva la pagina (no reload yet)
+		e.preventDefault();
+
+		//TODO: si pasa validacion, se guarda
+
+			// Se genera un ID para una nueva Signin
+			var newSignInId = database.ref().child('signins').push().key;
+
+			// Se llama la funcion que guardar los datos
+			writeSignIn(newSignInId);
+
+		//TODO: reload page after confirmation
+			//espera X segundos o envia un Alert o Modal
+			//javascript reload page
+  });
+
+</script>
 
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
