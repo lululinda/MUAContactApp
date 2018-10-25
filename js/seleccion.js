@@ -50,11 +50,11 @@ function mySelection() {
 	document.getElementById("etapas").click();
 	document.getElementById("educacion").click();
 	document.getElementById("domestica").click();
-	document.getElementById("AS").click();
+	document.getElementById("as").click();
 	document.getElementById("autoestima").click();
 	document.getElementById("salud").click();
 	document.getElementById("sana").click();
-	document.getElementById("CPR").click();
+	document.getElementById("cpr").click();
 	document.getElementById("universidad").click();
 	document.getElementById("inmigracion").click();
 	document.getElementById("hogar").click();
