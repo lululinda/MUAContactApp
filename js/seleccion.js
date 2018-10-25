@@ -3,7 +3,7 @@
 Create array to give a list of the 3 cheboxes selected*/
 
 let clickedAnswers = [];
-let checkboxes = document.querySelectorAll('input[type=checkbox]');
+let checkboxes  = document.querySelectorAll('input[type=checkbox]');
 let checkboxes1 = document.querySelectorAll('preparacion>input[type=checkbox]');
 let checkboxes2 = document.querySelectorAll('apoyo>input[type=checkbox]');
 let checkboxes3 = document.querySelectorAll('raices>input[type=checkbox]');
@@ -50,11 +50,11 @@ function mySelection() {
 	document.getElementById("etapas").click();
 	document.getElementById("educacion").click();
 	document.getElementById("domestica").click();
-	document.getElementById("AS").click();
+	document.getElementById("as").click();
 	document.getElementById("autoestima").click();
 	document.getElementById("salud").click();
 	document.getElementById("sana").click();
-	document.getElementById("CPR").click();
+	document.getElementById("cpr").click();
 	document.getElementById("universidad").click();
 	document.getElementById("inmigracion").click();
 	document.getElementById("hogar").click();

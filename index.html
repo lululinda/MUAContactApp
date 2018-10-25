@@ -49,15 +49,15 @@
 
 				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
 					<span class="label-input100">Nombre(s) *</span>
-					<input class="input100" type="text" name="name" placeholder="&#128105; Anote su Nombre(s)">
+					<input class="input100" type="text" name="name" id="name" placeholder="&#128105; Anote su Nombre(s)">
 				</div>
 				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Apellido">
 					<span class="label-input100">Apellido(s) *</span>
-					<input class="input100" type="text" name="Apeido" placeholder="&#9997; Anote Apellido(s)">
+					<input class="input100" type="text" name="apeido" id="apeido" placeholder="&#9997; Anote Apellido(s)">
 				</div>
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Numero de telefono">
 					<span class="label-input100">Telefono *</span>
-					<input class=" input100" type="text" name="phone" placeholder="&#9742; Anote su numero de telefono">
+					<input class=" input100" type="text" name="phone" id="phone" placeholder="&#9742; Anote su numero de telefono">
 				</div>
 				
 			    <!--<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Edad">
@@ -67,7 +67,7 @@
 				 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Seleccione su Edad">
 
              <span class="label-input100">Edad *</span>
-             <input  class="input100" type="text" id="t1" name="edad" list="l1" required placeholder="&#128198; seleccione edad">
+             <input  class="input100" type="text" id="t1" name="edad" id="edad" list="l1" required placeholder="&#128198; seleccione edad">
             <datalist id="l1">
             <option>18-25</option>
             <option>26-35</option>
@@ -81,19 +81,19 @@
 				
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Genero">
 					<span class="label-input100">Genero *</span>
-					<input class="input100" type="text" name="Genero" placeholder="&#127752; Anote el Genero que se identifica">
+					<input class="input100" type="text" name="genero" id="genero" placeholder="&#127752; Anote el Genero que se identifica">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Zip Code">
 				 <span class="label-input100">Codigo Postal*</span>
-					<input class="input100" type="text" text="Codigo Postal" name="Codigo" placeholder="&#128235; Anote su Codigo Postal">
+					<input class="input100" type="text" text="Codigo Postal" name="codigo" id="codigo" placeholder="&#128235; Anote su Codigo Postal">
 				</div>
 				
 
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100"><h4>Programas de MUA *</h4></span>
 				     <div>
-						<select class="js-select2" name="Programas">
+						<select class="js-select2" name="programas" id="programas">
 							<option>Seleccione 1 a 3</option>
 						</select>
 						<div class="dropDownSelect2"></div>
@@ -143,8 +143,8 @@
 						</div>
 
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="AS" type="checkbox" name="type-apoyo" value="AS">
-							<label class="label-radio100" for="AS">
+							<input class="input-radio100" id="as" type="checkbox" name="type-apoyo" value="AS">
+							<label class="label-radio100" for="as">
 								  Asalto Sexual
 							</label>
 						</div>
@@ -179,8 +179,8 @@
 						<span class="label-input100"><h5>Campaña</h5></span>
 
 						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="CPR" type="checkbox" name="campaña" value="CPR">
-							<label class="label-radio100" for="CPR">
+							<input class="input-radio100" id="cpr" type="checkbox" name="campaña" value="CPR">
+							<label class="label-radio100" for="cpr">
 								Taller CPR (RCP)
 							</label>
 						</div>
@@ -221,7 +221,7 @@
 			</div>
 			
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+					<button class="contact100-form-btn" id="finalizar">
 						<span>
 							Finalizar
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -263,8 +263,71 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	
-	
+<!--
+	Se agrega la libreria completa de Firebase, ya que este
+	en produccion se cambia solo las funciones que se necessitan.
+-->
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<script>
+  // Initializar todo Firebase, estan los detalles dentro de
+  // https://console.firebase.google.com/project/muachile-81afe/settings/general/
+  var config = {
+    apiKey: "AIzaSyAU8lvzdRC5QA_CzCaB2NdpSs8kWAOWRyQ",
+    authDomain: "muachile-81afe.firebaseapp.com",
+    databaseURL: "https://muachile-81afe.firebaseio.com",
+    projectId: "muachile-81afe",
+    storageBucket: "muachile-81afe.appspot.com",
+    messagingSenderId: "157612617310"
+  };
+  firebase.initializeApp(config);
+
+  // Si obtiene una referencia a la base de datos
+  var database = firebase.database();
+
+  // Funcion que guarda los datos
+	// aqui se obtienen directamente del DOM
+  // TODO: Faltan los demas Fields
+	function writeSignIn(newSignInId) {
+		firebase.database().ref('signins/' + newSignInId ).set({
+			name: document.getElementById("name").value,
+			apeido: document.getElementById("apeido").value,
+			creado: firebase.database.ServerValue.TIMESTAMP   //quizas usar otro formato mas claro
+		}, function(error) {
+			if (error) {
+				console.log( error );
+			} else {
+				console.log( 'Se guardo, yay !' );
+			}
+		});
+	}
+
+	// Obtener elemento buton de finalizar
+	var finalizarButton = document.getElementById('finalizar');
+
+	// En finalizar, se guardan los datos a firebase
+	finalizarButton.addEventListener('click', function(e) {
+		//Para que no se mueva la pagina (no reload yet)
+		e.preventDefault();
+
+		//TODO: si pasa validacion, se guarda
+
+		// Se genera un ID para una nueva Signin
+		var newSignInId = database.ref().child('signins').push().key;
+
+		// Se llama la funcion que guardar los datos
+		writeSignIn(newSignInId);
+
+		//TODO: reload page after confirmation
+			//espera X segundos o envia un Alert o Modal
+			//javascript reload page
+		window.setTimeout(function() {
+			window.location.href = self.location;
+		}, 5000);
+
+	});
+
+</script>
+
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
