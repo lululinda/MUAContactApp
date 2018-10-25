@@ -265,11 +265,11 @@
 <!--===============================================================================================-->
 <!--
 	Se agrega la libreria completa de Firebase, ya que este
-	produccion se cambia solo las funciones que se necessitan.
+	en produccion se cambia solo las funciones que se necessitan.
 -->
 <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
 <script>
-  // Initializar todo Firebase, esta detalles estan dentro de
+  // Initializar todo Firebase, estan los detalles dentro de
   // https://console.firebase.google.com/project/muachile-81afe/settings/general/
   var config = {
     apiKey: "AIzaSyAU8lvzdRC5QA_CzCaB2NdpSs8kWAOWRyQ",
@@ -282,10 +282,10 @@
   firebase.initializeApp(config);
 
   // Si obtiene una referencia a la base de datos
-  // aqui se obtienen directamente del DOM
   var database = firebase.database();
 
   // Funcion que guarda los datos
+	// aqui se obtienen directamente del DOM
   // TODO: Faltan los demas Fields
 	function writeSignIn(newSignInId) {
 		firebase.database().ref('signins/' + newSignInId ).set({
