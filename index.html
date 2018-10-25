@@ -49,15 +49,15 @@
 
 				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
 					<span class="label-input100">Nombre(s) *</span>
-					<input class="input100" type="text" name="name" placeholder="&#128105; Anote su Nombre(s)">
+					<input class="input100" type="text" name="name" id="name" placeholder="&#128105; Anote su Nombre(s)">
 				</div>
 				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Apellido">
 					<span class="label-input100">Apellido(s) *</span>
-					<input class="input100" type="text" name="Apeido" placeholder="&#9997; Anote Apellido(s)">
+					<input class="input100" type="text" name="apeido" id="apeido" placeholder="&#9997; Anote Apellido(s)">
 				</div>
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Numero de telefono">
 					<span class="label-input100">Telefono *</span>
-					<input class=" input100" type="text" name="phone" placeholder="&#9742; Anote su numero de telefono">
+					<input class=" input100" type="text" name="phone" id="phone" placeholder="&#9742; Anote su numero de telefono">
 				</div>
 				
 			    <!--<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Edad">
@@ -67,7 +67,7 @@
 				 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Seleccione su Edad">
 
              <span class="label-input100">Edad *</span>
-             <input  class="input100" type="text" id="t1" name="edad" list="l1" required placeholder="&#128198; seleccione edad">
+             <input  class="input100" type="text" id="t1" name="edad" id="edad" list="l1" required placeholder="&#128198; seleccione edad">
             <datalist id="l1">
             <option>18-25</option>
             <option>26-35</option>
@@ -81,19 +81,19 @@
 				
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Genero">
 					<span class="label-input100">Genero *</span>
-					<input class="input100" type="text" name="Genero" placeholder="&#127752; Anote el Genero que se identifica">
+					<input class="input100" type="text" name="genero" id="genero" placeholder="&#127752; Anote el Genero que se identifica">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Zip Code">
 				 <span class="label-input100">Codigo Postal*</span>
-					<input class="input100" type="text" text="Codigo Postal" name="Codigo" placeholder="&#128235; Anote su Codigo Postal">
+					<input class="input100" type="text" text="Codigo Postal" name="codigo" id="codigo" placeholder="&#128235; Anote su Codigo Postal">
 				</div>
 				
 
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100"><h4>Programas de MUA *</h4></span>
 				     <div>
-						<select class="js-select2" name="Programas">
+						<select class="js-select2" name="programas" id="programas">
 							<option>Seleccione 1 a 3</option>
 						</select>
 						<div class="dropDownSelect2"></div>
@@ -143,8 +143,8 @@
 						</div>
 
 						<div class="contact100-form-radio">
-							<input class="input-radio100" id="AS" type="checkbox" name="type-apoyo" value="AS">
-							<label class="label-radio100" for="AS">
+							<input class="input-radio100" id="as" type="checkbox" name="type-apoyo" value="AS">
+							<label class="label-radio100" for="as">
 								  Asalto Sexual
 							</label>
 						</div>
@@ -179,8 +179,8 @@
 						<span class="label-input100"><h5>Campaña</h5></span>
 
 						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="CPR" type="checkbox" name="campaña" value="CPR">
-							<label class="label-radio100" for="CPR">
+							<input class="input-radio100" id="cpr" type="checkbox" name="campaña" value="CPR">
+							<label class="label-radio100" for="cpr">
 								Taller CPR (RCP)
 							</label>
 						</div>
@@ -221,7 +221,7 @@
 			</div>
 			
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+					<button class="contact100-form-btn" id="finalizar">
 						<span>
 							Finalizar
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -263,8 +263,8 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	
-	
+
+
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
