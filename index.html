@@ -320,7 +320,11 @@
 		//TODO: reload page after confirmation
 			//espera X segundos o envia un Alert o Modal
 			//javascript reload page
-  });
+		window.setTimeout(function() {
+			window.location.href = self.location;
+		}, 5000);
+
+	});
 
 </script>
 
