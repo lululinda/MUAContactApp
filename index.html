@@ -311,11 +311,11 @@
 
 		//TODO: si pasa validacion, se guarda
 
-			// Se genera un ID para una nueva Signin
-			var newSignInId = database.ref().child('signins').push().key;
+		// Se genera un ID para una nueva Signin
+		var newSignInId = database.ref().child('signins').push().key;
 
-			// Se llama la funcion que guardar los datos
-			writeSignIn(newSignInId);
+		// Se llama la funcion que guardar los datos
+		writeSignIn(newSignInId);
 
 		//TODO: reload page after confirmation
 			//espera X segundos o envia un Alert o Modal
