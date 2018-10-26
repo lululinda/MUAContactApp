@@ -285,9 +285,11 @@
   var database = firebase.database();
 
   // Funcion que guarda los datos
-	// aqui se obtienen directamente del DOM
-  // TODO: Faltan los demas Fields
+	// que se obtienen directamente del DOM
 	function writeSignIn(newSignInId) {
+		// Se preparan unos valores
+		var signdate = Date();
+
 		firebase.database().ref('signins/' + newSignInId ).set({
 			nombre: document.getElementById("nombre").value,
 			apellido: document.getElementById("apellido").value,
@@ -295,24 +297,25 @@
 			t1: document.getElementById("t1").value,
 			genero: document.getElementById("genero").value,
 			codigo: document.getElementById("codigo").value,
-			programas: document.getElementById("programas").value,
-			trabajos: document.getElementById("trabajos").value,
-			etapas: document.getElementById("etapas").value,
-			educacion: document.getElementById("educacion").value,
-			domestica: document.getElementById("domestica").value,
-			as: document.getElementById("as").value,
-			autoestima: document.getElementById("autoestima").value,
-			salud: document.getElementById("salud").value,
-			cpr: document.getElementById("cpr").value,
-			universidad: document.getElementById("universidad").value,
-			inmigracion: document.getElementById("inmigracion").value,
-			hogar: document.getElementById("hogar").value,
-			recaudacion: document.getElementById("recaudacion").value,
 
-// Create value from input called checkbox
+			//programas: document.getElementById("programas").value,
+			trabajos: document.getElementById("trabajos").checked,
+			etapas: document.getElementById("etapas").checked,
+			educacion: document.getElementById("educacion").checked,
 
-// if input id = true then checkbox = true, then creado: firebase.database.ServerValue.checkbox 
-			creado: firebase.database.ServerValue.TIMESTAMP   //quizas usar otro formato mas claro
+			domestica: document.getElementById("domestica").checked,
+			as: document.getElementById("as").checked,
+			autoestima: document.getElementById("autoestima").checked,
+			salud: document.getElementById("salud").checked,
+			sana: document.getElementById("sana").checked,
+
+			cpr: document.getElementById("cpr").checked,
+			universidad: document.getElementById("universidad").checked,
+			inmigracion: document.getElementById("inmigracion").checked,
+			hogar: document.getElementById("hogar").checked,
+			recaudacion: document.getElementById("recaudacion").checked,
+
+			creado: signdate.toString()
 		}, function(error) {
 			if (error) {
 				console.log( error );
