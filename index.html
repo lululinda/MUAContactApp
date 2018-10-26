@@ -49,11 +49,11 @@
 
 				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
 					<span class="label-input100">Nombre(s) *</span>
-					<input class="input100" type="text" name="name" id="name" placeholder="&#128105; Anote su Nombre(s)">
+					<input class="input100" type="text" name="nombre" id="nombre" placeholder="&#128105; Anote su Nombre(s)">
 				</div>
 				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Apellido">
 					<span class="label-input100">Apellido(s) *</span>
-					<input class="input100" type="text" name="apeido" id="apeido" placeholder="&#9997; Anote Apellido(s)">
+					<input class="input100" type="text" name="apellido" id="apellido" placeholder="&#9997; Anote Apellido(s)">
 				</div>
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Numero de telefono">
 					<span class="label-input100">Telefono *</span>
@@ -289,8 +289,29 @@
   // TODO: Faltan los demas Fields
 	function writeSignIn(newSignInId) {
 		firebase.database().ref('signins/' + newSignInId ).set({
-			name: document.getElementById("name").value,
-			apeido: document.getElementById("apeido").value,
+			nombre: document.getElementById("nombre").value,
+			apellido: document.getElementById("apellido").value,
+			phone: document.getElementById("phone").value,
+			t1: document.getElementById("t1").value,
+			genero: document.getElementById("genero").value,
+			codigo: document.getElementById("codigo").value,
+			programas: document.getElementById("programas").value,
+			trabajos: document.getElementById("trabajos").value,
+			etapas: document.getElementById("etapas").value,
+			educacion: document.getElementById("educacion").value,
+			domestica: document.getElementById("domestica").value,
+			as: document.getElementById("as").value,
+			autoestima: document.getElementById("autoestima").value,
+			salud: document.getElementById("salud").value,
+			cpr: document.getElementById("cpr").value,
+			universidad: document.getElementById("universidad").value,
+			inmigracion: document.getElementById("inmigracion").value,
+			hogar: document.getElementById("hogar").value,
+			recaudacion: document.getElementById("recaudacion").value,
+
+// Create value from input called checkbox
+
+// if input id = true then checkbox = true, then creado: firebase.database.ServerValue.checkbox 
 			creado: firebase.database.ServerValue.TIMESTAMP   //quizas usar otro formato mas claro
 		}, function(error) {
 			if (error) {
