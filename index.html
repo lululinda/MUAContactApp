@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>MUA Contact form</title>
+	<title>MUA Contactos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -36,8 +36,8 @@
 	Login simple de Firebase(no hay nuevos usarios)
 -->
 <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
-<script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
-<link href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" type="text/css" rel="stylesheet" />
+<script src="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth__es.js"></script>
+<link href="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript">
 	// Initializar todo Firebase, estan los detalles dentro de
   // https://console.firebase.google.com/project/muachile-81afe/settings/general/
@@ -80,7 +80,7 @@
   * @param {!firebase.User} user
   */
   var handleSignedInUser = function(user) {
-    document.getElementById('form-container').style.display = 'block';
+    document.getElementById('form-container').style.display = '';
     document.getElementById('user_email').textContent = user.email;
   };
 
@@ -102,9 +102,9 @@
 </script>
 <!--===============================================================================================-->
 </head>
-       
+
 <body>
-	<div id="firebaseui-auth-container"></div>
+  <div id="firebaseui-auth-container"></div>
 	<div class="container-contact100" style="display: none;" id="form-container">
 		<div class="wrap-contact100">
 			<div class="float-right" id="log-out-info">
