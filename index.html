@@ -390,7 +390,8 @@
 			hogar: document.getElementById("hogar").checked,
 			recaudacion: document.getElementById("recaudacion").checked,
 
-			creado: signdate.toString()
+      creado: signdate.toString(),
+      useremail: document.getElementById('user_email').textContent
 		}, function(error) {
 			if (error) {
 				console.log( error );
