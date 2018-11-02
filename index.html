@@ -377,8 +377,10 @@
       hogar: document.getElementById("hogar").checked,
       recaudacion: document.getElementById("recaudacion").checked,
 
-      creado: signdate.toString(),
-      useremail: document.getElementById('user_email').textContent
+      creado: database.ServerValue.TIMESTAMP,
+      fecha: signdate.toString(),
+      useremail: document.getElementById('user_email').textContent,
+      actividad: 'falta'
 
     }, function(error) {
       if (error) {
