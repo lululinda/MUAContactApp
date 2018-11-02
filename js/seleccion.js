@@ -13,7 +13,11 @@ Create an event handler for clicking checkbox groups*/
 $('.input-radio100').on('change', function() {
   if($('.input-radio100:checked').length > 3) {
     this.checked = false;
+  } else if( $('.input-radio100:checked').length == 3) {
+    console.log( 'listo para guardar!' );
+    $('#finalizar').show().removeAttr("disabled").removeClass("disabled");
   }
+
 });
 
 /*function onlyOneOption(){
