@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>MUA Contact form</title>
+	<title>MUA Contactos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -32,14 +32,85 @@
 
 <link rel="stylesheet" type="text/css" href="https://unicode-table.com/es/blocks/miscellaneous-symbols-and-pictographs/">
 
-<!--===============================================================================================-->
+<!--
+	Login simple de Firebase(no hay nuevos usarios)
+-->
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth__es.js"></script>
+<link href="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+	// Initializar todo Firebase, estan los detalles dentro de
+  // https://console.firebase.google.com/project/muachile-81afe/settings/general/
+  var config = {
+    apiKey: "AIzaSyAU8lvzdRC5QA_CzCaB2NdpSs8kWAOWRyQ",
+    authDomain: "muachile-81afe.firebaseapp.com",
+    databaseURL: "https://muachile-81afe.firebaseio.com",
+    projectId: "muachile-81afe",
+    storageBucket: "muachile-81afe.appspot.com",
+    messagingSenderId: "157612617310"
+  };
+  firebase.initializeApp(config);
 
+	var uiConfig = {
+		signInSuccessUrl: '/',
+		signInOptions: [
+			// Leave the lines as is for the providers you want to offer your users.
+			firebase.auth.EmailAuthProvider.PROVIDER_ID
+		],
+		credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+		// tosUrl and privacyPolicyUrl accept either url string or a callback function.
+		// Terms of service url/callback.
+		tosUrl: '/',
+		// Privacy policy url/callback.
+		privacyPolicyUrl: function() {
+			window.location.assign('/');
+		}
+	};
+
+	// Initialize the FirebaseUI Widget using Firebase.
+	var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+	// The start method will wait until the DOM is loaded, Check for a pending redirect first
+	if (ui.isPendingRedirect()) {
+		ui.start('#firebaseui-auth-container', uiConfig);
+	}
+
+	/**
+  * Displays the UI for a signed in user.
+  * @param {!firebase.User} user
+  */
+  var handleSignedInUser = function(user) {
+    document.getElementById('form-container').style.display = '';
+    document.getElementById('user_email').textContent = user.email;
+  };
+
+  /**
+  * Displays the UI for a signed out user.
+  */
+  var handleSignedOutUser = function() {
+   document.getElementById('form-container').style.display = 'none';
+   ui.start('#firebaseui-auth-container', uiConfig);
+	};
+
+	// Listen to change in auth state so it displays the correct UI for when
+	// the user is signed in or not.
+	firebase.auth().onAuthStateChanged(function(user) {
+		//console.log( user.email );
+		user ? handleSignedInUser(user) : handleSignedOutUser();
+	});
+
+</script>
+<!--===============================================================================================-->
 </head>
-       
+
 <body>
-  
-	<div class="container-contact100">
+  <div id="firebaseui-auth-container"></div>
+	<div class="container-contact100" style="display: none;" id="form-container">
 		<div class="wrap-contact100">
+			<div class="float-right" id="log-out-info">
+				<h6 id="user_email"></h6>
+				<button type="button" id="log-out" class="btn btn-outline-dark btn-sm">Log Out</button>
+      </div>
 			<form class="contact100-form validate-form" name="seleccion" id="seleccion">
 				<span class="contact100-form-title">
 				    <h2> Mujeres Unidas y Activas (MUA)</h2>
@@ -284,20 +355,7 @@
 	Se agrega la libreria completa de Firebase, ya que este
 	en produccion se cambia solo las funciones que se necessitan.
 -->
-<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
 <script>
-  // Initializar todo Firebase, estan los detalles dentro de
-  // https://console.firebase.google.com/project/muachile-81afe/settings/general/
-  var config = {
-    apiKey: "AIzaSyAU8lvzdRC5QA_CzCaB2NdpSs8kWAOWRyQ",
-    authDomain: "muachile-81afe.firebaseapp.com",
-    databaseURL: "https://muachile-81afe.firebaseio.com",
-    projectId: "muachile-81afe",
-    storageBucket: "muachile-81afe.appspot.com",
-    messagingSenderId: "157612617310"
-  };
-  firebase.initializeApp(config);
-
   // Si obtiene una referencia a la base de datos
   var database = firebase.database();
 
@@ -332,7 +390,8 @@
 			hogar: document.getElementById("hogar").checked,
 			recaudacion: document.getElementById("recaudacion").checked,
 
-			creado: signdate.toString()
+      creado: signdate.toString(),
+      useremail: document.getElementById('user_email').textContent
 		}, function(error) {
 			if (error) {
 				console.log( error );
@@ -365,8 +424,13 @@
 		// Espera X segundos o y reload page
 		window.setTimeout(function() {
 			window.location.href = self.location;
-		}, 5000);
+		}, 6000);
 
+	});
+
+	// Handle user logout button click
+	document.getElementById('log-out').addEventListener('click', function() {
+		firebase.auth().signOut();
 	});
 
 </script>
