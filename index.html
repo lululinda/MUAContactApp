@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>MUA Contactos</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	
-<!--===============================================================================================-->
-
-<link rel="stylesheet" type="text/css" href="https://unicode-table.com/es/blocks/miscellaneous-symbols-and-pictographs/">
-
-<!--
-	Login simple de Firebase(no hay nuevos usarios)
--->
-<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth__es.js"></script>
-<link href="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript">
-	// Initializar todo Firebase, estan los detalles dentro de
+  <title>MUA Contactos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://unicode-table.com/es/blocks/miscellaneous-symbols-and-pictographs/">
+  <!--
+    Login simple de Firebase(no hay nuevos usarios)
+    Se usa __{LANGUAGE}.js para la version espanol
+  -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth__es.js"></script>
+  <link href="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript">
+  // Initializar todo Firebase, estan los detalles dentro de
   // https://console.firebase.google.com/project/muachile-81afe/settings/general/
   var config = {
     apiKey: "AIzaSyAU8lvzdRC5QA_CzCaB2NdpSs8kWAOWRyQ",
@@ -51,32 +49,39 @@
   };
   firebase.initializeApp(config);
 
-	var uiConfig = {
-		signInSuccessUrl: '/',
-		signInOptions: [
-			// Leave the lines as is for the providers you want to offer your users.
-			firebase.auth.EmailAuthProvider.PROVIDER_ID
-		],
-		credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-		// tosUrl and privacyPolicyUrl accept either url string or a callback function.
-		// Terms of service url/callback.
-		tosUrl: '/',
-		// Privacy policy url/callback.
-		privacyPolicyUrl: function() {
-			window.location.assign('/');
-		}
-	};
+  var uiConfig = {
+    // Despues de verificacion, se envia a las misma pagina. Se puede usar un funcion callback
+    signInSuccessUrl: '/',
+    signInOptions: [
+    // Se dejan todos las opciones de porvedores que se queran ser disponibles
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    // Tranquilo con el empuje a verificar con Google
+    credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+    // En el formulario de Login, este es el link de Terminos de Servicio de este App
+    tosUrl: '/',
+    // En el formulario de Login, este es el link de Poliza de Privacidad de este App
+    privacyPolicyUrl: function() {
+      window.location.assign('/');
+    }
+  };
 
-	// Initialize the FirebaseUI Widget using Firebase.
-	var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  //  Se initializa el FirebaseUI Widget de Firebase
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-	// The start method will wait until the DOM is loaded, Check for a pending redirect first
-	if (ui.isPendingRedirect()) {
-		ui.start('#firebaseui-auth-container', uiConfig);
-	}
+  // Despues de verificar que NO se ha lanzado un Page Reload,
+  // se inicia el formulario Login ya que este formado todo el DOM
+  if (ui.isPendingRedirect()) {
+    ui.start('#firebaseui-auth-container', uiConfig);
+  }
 
-	/**
-  * Displays the UI for a signed in user.
+  /**
+  * Una funcion que nos deja detallar/debujar
+  * elementos de la pagina cuando un Usuario este verificado
+  *  Al momento:
+  *  1) se enseña el Formulario
+  *  2) dibuja el Email del Usuario
+  *
   * @param {!firebase.User} user
   */
   var handleSignedInUser = function(user) {
@@ -85,60 +90,58 @@
   };
 
   /**
-  * Displays the UI for a signed out user.
+  * Igualmente, se detalla/debuja elementos o procesos
+  * de la pagina cuando un Usuario NO esta verificado
   */
   var handleSignedOutUser = function() {
    document.getElementById('form-container').style.display = 'none';
    ui.start('#firebaseui-auth-container', uiConfig);
-	};
+  };
 
-	// Listen to change in auth state so it displays the correct UI for when
-	// the user is signed in or not.
-	firebase.auth().onAuthStateChanged(function(user) {
-		//console.log( user.email );
-		user ? handleSignedInUser(user) : handleSignedOutUser();
-	});
+  // Se eschucha los cambios de estado de Verficacion/NO Verificacion, cuando hay un cambio de estado
+  // se puede tomar callbacks
+  firebase.auth().onAuthStateChanged(function(user) {
+    // Se puede inspectar el Objecto del Usurio Firebase (solo cuando verificado)
+    // console.log( user);
+    user ? handleSignedInUser(user) : handleSignedOutUser();
+  });
 
 </script>
 <!--===============================================================================================-->
 </head>
-
 <body>
   <div id="firebaseui-auth-container"></div>
-	<div class="container-contact100" style="display: none;" id="form-container">
-		<div class="wrap-contact100">
-			<div class="float-right" id="log-out-info">
-				<h6 id="user_email"></h6>
-				<button type="button" id="log-out" class="btn btn-outline-dark btn-sm">Log Out</button>
+  <div class="container-contact100" style="display: none;" id="form-container">
+    <div class="wrap-contact100">
+      <div class="float-right" id="log-out-info">
+        <h6 id="user_email"></h6>
+        <button type="button" id="log-out" class="btn btn-outline-dark btn-sm">Log Out</button>
       </div>
-			<form class="contact100-form validate-form" name="seleccion" id="seleccion">
-				<span class="contact100-form-title">
-				    <h2> Mujeres Unidas y Activas (MUA)</h2>
-				    <h3>Una mujer a la vez...</h3>
-					<h3>Lista de Asistencia</h3>
-				</span>
-
-				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
-					<span class="label-input100">Nombre(s) *</span>
-					<input class="input100" type="text" name="nombre" id="nombre" placeholder="&#128105; Anote su Nombre(s)">
-				</div>
-				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Apellido">
-					<span class="label-input100">Apellido(s) *</span>
-					<input class="input100" type="text" name="apellido" id="apellido" placeholder="&#9997; Anote Apellido(s)">
-				</div>
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Numero de telefono">
-					<span class="label-input100">Telefono *</span>
-					<input class=" input100" type="text" name="phone" id="phone" placeholder="&#9742; Anote su numero de telefono">
-				</div>
-				
-			    <!--<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Edad">
-				 <span class="label-input100">Edad (ejemplo 25-35) *</span>
-					<input class="input100" type="text" text="Edad" placeholder="&#128198; Anote su Edad ">
-				</div>-->
-				 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Seleccione su Edad">
-
-             <span class="label-input100">Edad *</span>
-             <input  class="input100" type="text" id="t1" name="edad" id="edad" list="l1" required placeholder="&#128198; seleccione edad">
+      <form class="contact100-form validate-form" name="seleccion" id="seleccion">
+        <span class="contact100-form-title">
+          <h2> Mujeres Unidas y Activas (MUA)</h2>
+          <h3>Una mujer a la vez...</h3>
+          <h3>Lista de Asistencia</h3>
+        </span>
+        <div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
+          <span class="label-input100">Nombre(s) *</span>
+          <input class="input100" type="text" name="nombre" id="nombre" placeholder="&#128105; Anote su Nombre(s)">
+        </div>
+        <div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Apellido">
+          <span class="label-input100">Apellido(s) *</span>
+          <input class="input100" type="text" name="apellido" id="apellido" placeholder="&#9997; Anote Apellido(s)">
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Numero de telefono">
+          <span class="label-input100">Telefono *</span>
+          <input class=" input100" type="text" name="phone" id="phone" placeholder="&#9742; Anote su numero de telefono">
+        </div>
+        <!--<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Edad">
+          <span class="label-input100">Edad (ejemplo 25-35) *</span>
+          <input class="input100" type="text" text="Edad" placeholder="&#128198; Anote su Edad ">
+        </div>-->
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Seleccione su Edad">
+          <span class="label-input100">Edad *</span>
+          <input  class="input100" type="text" id="t1" name="edad" id="edad" list="l1" required placeholder="&#128198; seleccione edad">
             <datalist id="l1">
             <option>18-25</option>
             <option>26-35</option>
@@ -148,303 +151,281 @@
             <option>66-75</option>
             <option>76-a mas</option>
             </datalist>
-           </div>
-				
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Genero">
-					<span class="label-input100">Genero *</span>
-					<input class="input100" type="text" name="genero" id="genero" placeholder="&#127752; Anote el Genero que se identifica">
-				</div>
-
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Zip Code">
-				 <span class="label-input100">Codigo Postal*</span>
-					<input class="input100" type="text" text="Codigo Postal" name="codigo" id="codigo" placeholder="&#128235; Anote su Codigo Postal">
-				</div>
-				
-
-				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100"><h4>Programas de MUA *</h4></span>
-				     <div>
-						<select class="js-select2" name="programas" id="programas">
-							<option>Seleccione 1 a 3</option>
-						</select>
-						<div class="dropDownSelect2"></div>
-				      </div>
-
-			<div id="preparacion">	      
-				<div class="w-full dis-none js-show-service">
-					<div class="wrap-contact100-form-radio">
-						<span class="label-input100"><h5>Preparacion para el Trabajo</h5></span>
-
-						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="trabajos" type="checkbox" name="type-programas" value="trabajos">
-							<label class="label-radio100" for="trabajos">
-								Limpieza de casas con productos naturales
-							</label>
-						</div>
-
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="etapas" type="checkbox" name="type-programas" value="etapas">
-							<label class="label-radio100" for="etapas">
-								 Etapas de los niños
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="educacion" type="checkbox" name="type-programas" value="educacion">
-							<label class="label-radio100" for="educacion">
-								Educacion financiera
-							</label>
-						 </div>
-                        <div class="contact100-form-range-bar">
-						</div>
-
-			</div>
-			
-			<div id ="apoyo">
-						<div class="w-full dis-none js-show-service">
-					    <div class="wrap-contact100-form-radio">
-						<span class="label-input100"><h5>Programa de Apoyo</h5></span>
-
-						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="domestica" type="checkbox" name="type-apoyo" value="domestica">
-							<label class="label-radio100" for="domestica">
-								 Violencia domestica
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="as" type="checkbox" name="type-apoyo" value="AS">
-							<label class="label-radio100" for="as">
-								  Asalto Sexual
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="autoestima" type="checkbox" name="type-apoyo" value="autoestima">
-							<label class="label-radio100" for="autoestima">
-								 Autoestima
-							</label>
-						</div>
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="salud" type="checkbox" name="type-apoyo" value="salud">
-							<label class="label-radio100" for="salud">
-								 Salud Reproductiva
-							</label>
-						</div>
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="sana" type="checkbox" name="type-apoyo" value="sana">
-							<label class="label-radio100" for="sana">
-								 Alimentacion Sana
-							</label>
-						</div>
-
-			</div>			
-
-                        <div class="dropDownSelect2"></div>
-					    </div>
-
-			<div id="raices">
-				        <div class="w-full dis-none js-show-service">
-					    <div class="wrap-contact100-form-radio">
-						<span class="label-input100"><h5>Campaña</h5></span>
-
-						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="cpr" type="checkbox" name="campaña" value="CPR">
-							<label class="label-radio100" for="cpr">
-								Taller CPR (RCP)
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="universidad" type="checkbox" name="campaña" value="universidad">
-							<label class="label-radio100" for="universidad">
-								 Universidad MUA
-							</label>
-						 </div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="inmigracion" type="checkbox" name="campaña" value="inmigracion">
-							<label class="label-radio100" for="inmigracion">
-								Conozca sus Derechos (Inmigracion)
-							</label>
-						</div>
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="hogar" type="checkbox" name="campaña" value="hogar">
-							<label class="label-radio100" for="hogar">
-								Trabajadoras del Hogar
-							</label>
-						</div>
-
-			</div>
-
-			<div id="fondos">
-					    <div class="w-full dis-none js-show-service">
-					    <div class="wrap-contact100-form-radio">
-						<span class="label-input100"><h5>Recaudacion de Fondos</h5></span>
-
-						<div class="contact100-form-radio m-t-15">
-					  <input class="input-radio100" id="recaudacion" type="checkbox" name="participacion" value="recaudacion">
-							<label class="label-radio100" for="recaudacion">
-								Comite de Recaudacion (Participacion)
-							</label>
-						</div>
-			</div>
-			
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn" id="finalizar">
-						<span>
-							Finalizar
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
-
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Genero">
+          <span class="label-input100">Genero *</span>
+          <input class="input100" type="text" name="genero" id="genero" placeholder="&#127752; Anote el Genero que se identifica">
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Zip Code">
+          <span class="label-input100">Codigo Postal*</span>
+          <input class="input100" type="text" text="Codigo Postal" name="codigo" id="codigo" placeholder="&#128235; Anote su Codigo Postal">
+        </div>
+        <div class="wrap-input100 input100-select bg1">
+          <span class="label-input100"><h4>Programas de MUA *</h4></span>
+          <div>
+            <select class="js-select2" name="programas" id="programas">
+              <option>Seleccione 1 a 3</option>
+            </select>
+            <div class="dropDownSelect2"></div>
+          </div>
+          <div id="preparacion">
+            <div class="w-full dis-none js-show-service">
+              <div class="wrap-contact100-form-radio">
+                <span class="label-input100"><h5>Preparacion para el Trabajo</h5></span>
+                <div class="contact100-form-radio m-t-15">
+                  <input class="input-radio100" id="trabajos" type="checkbox" name="type-programas" value="trabajos">
+                  <label class="label-radio100" for="trabajos">
+                    Limpieza de casas con productos naturales
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="etapas" type="checkbox" name="type-programas" value="etapas">
+                  <label class="label-radio100" for="etapas">
+                    Etapas de los niños
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="educacion" type="checkbox" name="type-programas" value="educacion">
+                  <label class="label-radio100" for="educacion">
+                    Educacion financiera
+                  </label>
+                </div>
+                <div class="contact100-form-range-bar">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id ="apoyo">
+            <div class="w-full dis-none js-show-service">
+              <div class="wrap-contact100-form-radio">
+                <span class="label-input100"><h5>Programa de Apoyo</h5></span>
+                <div class="contact100-form-radio m-t-15">
+                  <input class="input-radio100" id="domestica" type="checkbox" name="type-apoyo" value="domestica">
+                  <label class="label-radio100" for="domestica">
+                    Violencia domestica
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="as" type="checkbox" name="type-apoyo" value="AS">
+                  <label class="label-radio100" for="as">
+                    Asalto Sexual
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="autoestima" type="checkbox" name="type-apoyo" value="autoestima">
+                  <label class="label-radio100" for="autoestima">
+                    Autoestima
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="salud" type="checkbox" name="type-apoyo" value="salud">
+                  <label class="label-radio100" for="salud">
+                    Salud Reproductiva
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="sana" type="checkbox" name="type-apoyo" value="sana">
+                  <label class="label-radio100" for="sana">
+                    Alimentacion Sana
+                  </label>
+                </div>
+              </div>
+              <div class="dropDownSelect2"></div>
+            </div>
+          </div>
+          <div id="raices">
+            <div class="w-full dis-none js-show-service">
+              <div class="wrap-contact100-form-radio">
+                <span class="label-input100"><h5>Campaña</h5></span>
+                <div class="contact100-form-radio m-t-15">
+                  <input class="input-radio100" id="cpr" type="checkbox" name="campaña" value="CPR">
+                  <label class="label-radio100" for="cpr">
+                    Taller CPR (RCP)
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="universidad" type="checkbox" name="campaña" value="universidad">
+                  <label class="label-radio100" for="universidad">
+                    Universidad MUA
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="inmigracion" type="checkbox" name="campaña" value="inmigracion">
+                  <label class="label-radio100" for="inmigracion">
+                    Conozca sus Derechos (Inmigracion)
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="hogar" type="checkbox" name="campaña" value="hogar">
+                  <label class="label-radio100" for="hogar">
+                    Trabajadoras del Hogar
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="fondos">
+            <div class="w-full dis-none js-show-service">
+              <div class="wrap-contact100-form-radio">
+                <span class="label-input100"><h5>Recaudacion de Fondos</h5></span>
+                <div class="contact100-form-radio m-t-15">
+                  <input class="input-radio100" id="recaudacion" type="checkbox" name="participacion" value="recaudacion">
+                  <label class="label-radio100" for="recaudacion">
+                    Comite de Recaudacion (Participacion)
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-contact100-form-btn">
+          <button type="button" class="contact100-form-btn disabled" id="finalizar" style="display: none;" disabled>
+            <span>
+              Finalizar
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 <!--===============================================================================================-->
-<div class="modal" tabindex="-1" role="dialog" id="otra">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Gracias</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Quien mas esta ahi ?</p>
-      </div>
-      <div class="modal-footer">
-       <i class="fa fa-refresh fa-spin fa-2x fa-fw" aria-hidden="true"></i>
+  <div class="modal" tabindex="-1" role="dialog" id="otra">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Gracias</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="lead">Quien mas esta ahi ?</p>
+        </div>
+        <div class="modal-footer">
+          <i class="fa fa-refresh fa-spin fa-2x fa-fw" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
+  <script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<script>
-		$(".js-select2").each(function(){
-			$(this).select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $(this).next('.dropDownSelect2')
-			});
-			$(".js-select2").each(function(){
-				$(this).on('select2:close', function (e){
-					if($(this).val() == "Por favor Seleccione ") {
-						$('.js-show-service').slideUp();
-					}
-					else {
-						$('.js-show-service').slideUp();
-						$('.js-show-service').slideDown();
-					}
-				});
-			});
-		})
-	</script>
-<!--===============================================================================================-->
-<!--
-	Se agrega la libreria completa de Firebase, ya que este
-	en produccion se cambia solo las funciones que se necessitan.
--->
-<script>
+  <script src="vendor/select2/select2.min.js"></script>
+  <script>
+    $(".js-select2").each(function(){
+      $(this).select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $(this).next('.dropDownSelect2')
+      });
+
+      $(".js-select2").each(function(){
+        $(this).on('select2:close', function (e){
+          if($(this).val() == "Por favor Seleccione ") {
+            $('.js-show-service').slideUp();
+          } else {
+            $('.js-show-service').slideUp();
+            $('.js-show-service').slideDown();
+          }
+        });
+      });
+    });
+  </script>
+  <!--===============================================================================================-->
+  <!--
+    Se agrega la libreria completa de Firebase, ya que este
+    en produccion se cambia solo las funciones que se necessitan.
+  -->
+  <script>
   // Si obtiene una referencia a la base de datos
   var database = firebase.database();
 
   // Funcion que guarda los datos
-	// que se obtienen directamente del DOM
-	function writeSignIn(newSignInId) {
-		// Se preparan unos valores
-		var signdate = Date();
+  // que se obtienen directamente del DOM
+  function writeSignIn(newSignInId) {
+    // Se preparan unos valores
+    var signdate = Date();
 
-		firebase.database().ref('signins/' + newSignInId ).set({
-			nombre: document.getElementById("nombre").value,
-			apellido: document.getElementById("apellido").value,
-			phone: document.getElementById("phone").value,
-			t1: document.getElementById("t1").value,
-			genero: document.getElementById("genero").value,
-			codigo: document.getElementById("codigo").value,
+    firebase.database().ref('signins/' + newSignInId ).set({
+      nombre: document.getElementById("nombre").value,
+      apellido: document.getElementById("apellido").value,
+      phone: document.getElementById("phone").value,
+      t1: document.getElementById("t1").value,
+      genero: document.getElementById("genero").value,
+      codigo: document.getElementById("codigo").value,
 
-			//programas: document.getElementById("programas").value,
-			trabajos: document.getElementById("trabajos").checked,
-			etapas: document.getElementById("etapas").checked,
-			educacion: document.getElementById("educacion").checked,
+      trabajos: document.getElementById("trabajos").checked,
+      etapas: document.getElementById("etapas").checked,
+      educacion: document.getElementById("educacion").checked,
 
-			domestica: document.getElementById("domestica").checked,
-			as: document.getElementById("as").checked,
-			autoestima: document.getElementById("autoestima").checked,
-			salud: document.getElementById("salud").checked,
-			sana: document.getElementById("sana").checked,
+      domestica: document.getElementById("domestica").checked,
+      as: document.getElementById("as").checked,
+      autoestima: document.getElementById("autoestima").checked,
+      salud: document.getElementById("salud").checked,
+      sana: document.getElementById("sana").checked,
 
-			cpr: document.getElementById("cpr").checked,
-			universidad: document.getElementById("universidad").checked,
-			inmigracion: document.getElementById("inmigracion").checked,
-			hogar: document.getElementById("hogar").checked,
-			recaudacion: document.getElementById("recaudacion").checked,
+      cpr: document.getElementById("cpr").checked,
+      universidad: document.getElementById("universidad").checked,
+      inmigracion: document.getElementById("inmigracion").checked,
+      hogar: document.getElementById("hogar").checked,
+      recaudacion: document.getElementById("recaudacion").checked,
 
       creado: signdate.toString(),
       useremail: document.getElementById('user_email').textContent
-		}, function(error) {
-			if (error) {
-				console.log( error );
-			} else {
-				console.log( 'Se guardo, yay !' );
-			}
-		});
-	}
 
-	// Obtener elemento buton de finalizar
-	var finalizarButton = document.getElementById('finalizar');
+    }, function(error) {
+      if (error) {
+        console.log( error );
+      } else {
+        console.log( 'Se guardo, yay !' );
+      }
+    });
+  }
 
-	// En finalizar, se guardan los datos a firebase
-	finalizarButton.addEventListener('click', function(e) {
-		//Para que no se mueva la pagina (no reload yet)
-		e.preventDefault();
+  // Obtener elemento buton de finalizar
+  var finalizarButton = document.getElementById('finalizar');
 
-		//TODO: si pasa validacion, se guarda
+  // En finalizar, se guardan los datos a firebase
+  finalizarButton.addEventListener('click', function(e) {
+    //Para que no se mueva la pagina (no reload yet)
+    e.preventDefault();
 
-		// Se genera un ID para una nueva Signin
-		var newSignInId = database.ref().child('signins').push().key;
+    //TODO: si pasa validacion, se guarda
 
-		// Se llama la funcion que guardar los datos
-		writeSignIn(newSignInId);
+    // Se genera un ID para una nueva Signin
+    var newSignInId = database.ref().child('signins').push().key;
 
-		//TODO: reload page after confirmation
-		// Envia un Alert o Modal
-		$('#otra').modal('show');
+    // Se llama la funcion que guardar los datos
+    writeSignIn(newSignInId);
 
-		// Espera X segundos o y reload page
-		window.setTimeout(function() {
-			window.location.href = self.location;
-		}, 6000);
+    //TODO: reload page after confirmation
+    // Envia un Alert o Modal
+    $('#otra').modal('show');
 
-	});
+    // Espera X segundos o y reload page
+    window.setTimeout(function() {
+      window.location.href = self.location;
+    }, 4000);
 
-	// Handle user logout button click
-	document.getElementById('log-out').addEventListener('click', function() {
-		firebase.auth().signOut();
-	});
+  });
 
-</script>
+  // Handle user logout button click
+  document.getElementById('log-out').addEventListener('click', function() {
+    firebase.auth().signOut();
+  });
 
+  </script>
 <!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
+  <script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-	<script src="js/seleccion.js"></script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="js/main.js"></script>
+  <script src="js/seleccion.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
 
 </body>
 </html>
