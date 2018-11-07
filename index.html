@@ -1,291 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>MUA Contact form</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	
-<!--===============================================================================================-->
-
-<link rel="stylesheet" type="text/css" href="https://unicode-table.com/es/blocks/miscellaneous-symbols-and-pictographs/">
-
-<!--===============================================================================================-->
-
-</head>
-       
-<body>
-  
-	<div class="container-contact100">
-		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" name="seleccion" id="seleccion">
-				<span class="contact100-form-title">
-				    <h2> Mujeres Unidas y Activas (MUA)</h2>
-				    <h3>Una mujer a la vez...</h3>
-					<h3>Lista de Asistencia</h3>
-				</span>
-
-				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
-					<span class="label-input100">Nombre(s) *</span>
-					<input class="input100" type="text" name="nombre" id="nombre" placeholder="&#128105; Anote su Nombre(s)">
-				</div>
-				<div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Apellido">
-					<span class="label-input100">Apellido(s) *</span>
-					<input class="input100" type="text" name="apellido" id="apellido" placeholder="&#9997; Anote Apellido(s)">
-				</div>
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Numero de telefono">
-					<span class="label-input100">Telefono *</span>
-					<input class=" input100" type="text" name="phone" id="phone" placeholder="&#9742; Anote su numero de telefono">
-				</div>
-				
-			    <!--<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Edad">
-				 <span class="label-input100">Edad (ejemplo 25-35) *</span>
-					<input class="input100" type="text" text="Edad" placeholder="&#128198; Anote su Edad ">
-				</div>-->
-				 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Seleccione su Edad">
-
-             <span class="label-input100">Edad *</span>
-             <input  class="input100" type="text" id="t1" name="edad" id="edad" list="l1" required placeholder="&#128198; seleccione edad">
-            <datalist id="l1">
-            <option>18-25</option>
-            <option>26-35</option>
-            <option>36-45</option>
-            <option>46-55</option>
-            <option>56-65</option>
-            <option>66-75</option>
-            <option>76-a mas</option>
-            </datalist>
-           </div>
-				
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Genero">
-					<span class="label-input100">Genero *</span>
-					<input class="input100" type="text" name="genero" id="genero" placeholder="&#127752; Anote el Genero que se identifica">
-				</div>
-
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Zip Code">
-				 <span class="label-input100">Codigo Postal*</span>
-					<input class="input100" type="text" text="Codigo Postal" name="codigo" id="codigo" placeholder="&#128235; Anote su Codigo Postal">
-				</div>
-				
-
-				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100"><h4>Programas de MUA *</h4></span>
-				     <div>
-						<select class="js-select2" name="programas" id="programas">
-							<option>Seleccione 1 a 3</option>
-						</select>
-						<div class="dropDownSelect2"></div>
-				      </div>
-
-			<div id="preparacion">	      
-				<div class="w-full dis-none js-show-service">
-					<div class="wrap-contact100-form-radio">
-						<span class="label-input100"><h5>Preparacion para el Trabajo</h5></span>
-
-						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="trabajos" type="checkbox" name="type-programas" value="trabajos">
-							<label class="label-radio100" for="trabajos">
-								Limpieza de casas con productos naturales
-							</label>
-						</div>
-
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="etapas" type="checkbox" name="type-programas" value="etapas">
-							<label class="label-radio100" for="etapas">
-								 Etapas de los niños
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="educacion" type="checkbox" name="type-programas" value="educacion">
-							<label class="label-radio100" for="educacion">
-								Educacion financiera
-							</label>
-						 </div>
-                        <div class="contact100-form-range-bar">
-						</div>
-
-			</div>
-			
-			<div id ="apoyo">
-						<div class="w-full dis-none js-show-service">
-					    <div class="wrap-contact100-form-radio">
-						<span class="label-input100"><h5>Programa de Apoyo</h5></span>
-
-						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="domestica" type="checkbox" name="type-apoyo" value="domestica">
-							<label class="label-radio100" for="domestica">
-								 Violencia domestica
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="as" type="checkbox" name="type-apoyo" value="AS">
-							<label class="label-radio100" for="as">
-								  Asalto Sexual
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="autoestima" type="checkbox" name="type-apoyo" value="autoestima">
-							<label class="label-radio100" for="autoestima">
-								 Autoestima
-							</label>
-						</div>
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="salud" type="checkbox" name="type-apoyo" value="salud">
-							<label class="label-radio100" for="salud">
-								 Salud Reproductiva
-							</label>
-						</div>
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="sana" type="checkbox" name="type-apoyo" value="sana">
-							<label class="label-radio100" for="sana">
-								 Alimentacion Sana
-							</label>
-						</div>
-
-			</div>			
-
-                        <div class="dropDownSelect2"></div>
-					    </div>
-
-			<div id="raices">
-				        <div class="w-full dis-none js-show-service">
-					    <div class="wrap-contact100-form-radio">
-						<span class="label-input100"><h5>Campaña</h5></span>
-
-						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="cpr" type="checkbox" name="campaña" value="CPR">
-							<label class="label-radio100" for="cpr">
-								Taller CPR (RCP)
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="universidad" type="checkbox" name="campaña" value="universidad">
-							<label class="label-radio100" for="universidad">
-								 Universidad MUA
-							</label>
-						 </div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="inmigracion" type="checkbox" name="campaña" value="inmigracion">
-							<label class="label-radio100" for="inmigracion">
-								Conozca sus Derechos (Inmigracion)
-							</label>
-						</div>
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="hogar" type="checkbox" name="campaña" value="hogar">
-							<label class="label-radio100" for="hogar">
-								Trabajadoras del Hogar
-							</label>
-						</div>
-
-			</div>
-
-			<div id="fondos">
-					    <div class="w-full dis-none js-show-service">
-					    <div class="wrap-contact100-form-radio">
-						<span class="label-input100"><h5>Recaudacion de Fondos</h5></span>
-
-						<div class="contact100-form-radio m-t-15">
-					  <input class="input-radio100" id="recaudacion" type="checkbox" name="participacion" value="recaudacion">
-							<label class="label-radio100" for="recaudacion">
-								Comite de Recaudacion (Participacion)
-							</label>
-						</div>
-			</div>
-			
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn" id="finalizar">
-						<span>
-							Finalizar
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
-
-<!--===============================================================================================-->
-<div class="modal" tabindex="-1" role="dialog" id="otra">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Gracias</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Quien mas esta ahi ?</p>
-      </div>
-      <div class="modal-footer">
-       <i class="fa fa-refresh fa-spin fa-2x fa-fw" aria-hidden="true"></i>
-      </div>
-    </div>
-  </div>
-</div>
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<script>
-		$(".js-select2").each(function(){
-			$(this).select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $(this).next('.dropDownSelect2')
-			});
-			$(".js-select2").each(function(){
-				$(this).on('select2:close', function (e){
-					if($(this).val() == "Por favor Seleccione ") {
-						$('.js-show-service').slideUp();
-					}
-					else {
-						$('.js-show-service').slideUp();
-						$('.js-show-service').slideDown();
-					}
-				});
-			});
-		})
-	</script>
-<!--===============================================================================================-->
-<!--
-	Se agrega la libreria completa de Firebase, ya que este
-	en produccion se cambia solo las funciones que se necessitan.
--->
-<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
-<script>
+  <title>MUA Contactos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://unicode-table.com/es/blocks/miscellaneous-symbols-and-pictographs/">
+  <!--
+    Login simple de Firebase(no hay nuevos usarios)
+    Se usa __{LANGUAGE}.js para la version espanol
+  -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth__es.js"></script>
+  <link href="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript">
   // Initializar todo Firebase, estan los detalles dentro de
   // https://console.firebase.google.com/project/muachile-81afe/settings/general/
   var config = {
@@ -298,89 +51,444 @@
   };
   firebase.initializeApp(config);
 
+  var uiConfig = {
+    // Despues de verificacion, se envia a las misma pagina. Se puede usar un funcion callback
+    signInSuccessUrl: '/',
+    signInOptions: [
+    // Se dejan todos las opciones de porvedores que se queran ser disponibles
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    // Tranquilo con el empuje a verificar con Google
+    credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+    // En el formulario de Login, este es el link de Terminos de Servicio de este App
+    tosUrl: '/',
+    // En el formulario de Login, este es el link de Poliza de Privacidad de este App
+    privacyPolicyUrl: function() {
+      window.location.assign('/');
+    }
+  };
+
+  //  Se initializa el FirebaseUI Widget de Firebase
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+  // Despues de verificar que NO se ha lanzado un Page Reload,
+  // se inicia el formulario Login ya que este formado todo el DOM
+  if (ui.isPendingRedirect()) {
+    ui.start('#firebaseui-auth-container', uiConfig);
+  }
+
+  /**
+  * Una funcion que nos deja detallar/debujar
+  * elementos de la pagina cuando un Usuario este verificado
+  *  Al momento:
+  *  1) se enseña el Formulario
+  *  2) dibuja el Email del Usuario
+  *
+  * @param {!firebase.User} user
+  */
+  var handleSignedInUser = function(user) {
+    if( JSON.parse(localStorage.getItem('actividad')) == null ) {
+      document.getElementById('actividadesSeleccion').style.display = '';
+    }
+    document.getElementById('user_email').textContent = user.email;
+  };
+
+  /**
+  * Igualmente, se detalla/debuja elementos o procesos
+  * de la pagina cuando un Usuario NO esta verificado
+  */
+  var handleSignedOutUser = function() {
+   document.getElementById('form-container').style.display = 'none';
+   ui.start('#firebaseui-auth-container', uiConfig);
+  };
+
+  // Se eschucha los cambios de estado de Verficacion/NO Verificacion, cuando hay un cambio de estado
+  // se puede tomar callbacks
+  firebase.auth().onAuthStateChanged(function(user) {
+    // Se puede inspectar el Objecto del Usurio Firebase (solo cuando verificado)
+    // console.log( user);
+    user ? handleSignedInUser(user) : handleSignedOutUser();
+  });
+
+</script>
+<!--===============================================================================================-->
+</head>
+<body>
+  <div id="firebaseui-auth-container"></div>
+
+  <div id="actividadesSeleccion" style="display: none;">
+    <h2 class="actividades-title"><i class="fa fa-home"></i> MUA Actividades</h2>
+    <div class="wrap-actividadesSeleccion">
+      <select name="actividad" id="actividad">
+        <option value=""></option>
+        <optgroup data-icon="fa-coffee" label='Reuniones Generales'>
+          <option value="Reuniones:San Francisco">San Francisco</option>
+          <option value="Reuniones:Oakland">Oakland</option>
+          <option value="Reuniones:Union City">Union City</option>
+        </optgroup>
+        <optgroup data-icon="fa-comments" label='Comites'>
+          <option value="Comites:Raices">Raices</option>
+          <option value="Comites:Consejeras y Facilitadoras">Consejeras y Facilitadoras</option>
+          <option value="Comites:Asalto Sexual">Asalto Sexual</option>
+          <option value="Comites:Recaudacion">Recaudacion</option>
+        </optgroup>
+        <optgroup data-icon="fa-briefcase" label='Talleres'>
+          <option value="Talleres:Conozca sus Derechos">Conozca sus Derechos</option>
+          <option value="Talleres:Negociacion de Salario y Contratos TH">Negociacion de Salario y Contratos TH</option>
+          <option value="Talleres:Mitos y Realidades de AS">Mitos y Realidades de AS</option>
+          <option value="Talleres:Impacto de VD en los niños">Impacto de VD en los niños</option>
+          <option value="Talleres:Universidad MUA">Universidad MUA</option>
+          <option value="Talleres:Recaudacion de fondos">Recaudacion de fondos</option>
+        </optgroup>
+        <optgroup data-icon="fa-briefcase" label='Entrenamientos'>
+          <option value="Entrenamientos:Liderazgo">Liderazgo</option>
+          <option value="Entrenamientos:Consejeras de VD">Consejeras de VD</option>
+          <option value="Entrenamientos:Facilitadoras">Facilitadoras</option>
+          <option value="Entrenamientos:Consejeras de AS">Consejeras de AS</option>
+          <option value="Entrenamientos:Recaudacion de fondos">Recaudacion de fondos</option>
+        </optgroup>
+        <optgroup data-icon="fa-graduation-cap" label='Alcance'>
+          <option value="Alcance:Conozca sus Derechos">Conozca sus Derechos</option>
+          <option value="Alcance:Asalto Sexual">Asalto Sexual</option>
+          <option value="Alcance:Violencia Domestica">Violencia Domestica</option>
+          <option value="Alcance:Trabajadoras del Hogar">Trabajadoras del Hogar</option>
+          <option value="Alcance:Acceso Linguistico">Acceso Linguistico</option>
+        </optgroup>
+        <optgroup data-icon="fa-book" label='Clase de Ingles'>
+          <option value="Clase:San Francisco">San Francisco</option>
+          <option value="Clase:Oakland">Oakland</option>
+          <option value="Clase:Union City">Union City</option>
+        </optgroup>
+        <optgroup data-icon="fa-bullhorn" label='Presentaciones'>
+          <option value="Presentaciones:Mesas de informacion">Mesas de informacion</option>
+          <option value="Presentaciones:Consulados">Consulados</option>
+          <option value="Presentaciones:Escuelas">Escuelas</option>
+          <option value="Presentaciones:Agencias">Agencias</option>
+        </optgroup>
+      </select>
+    <button type="button" class="disabled btn btn-outline-primary" id="actividades-guardar" style="display: none;" disabled>Pasar a Contactos</button>
+    </div>
+  </div>
+
+  <div class="container-contact100" style="display: none;" id="form-container">
+    <div class="wrap-contact100">
+      <div class="float-right" id="log-out-info">
+        <h6 id="user_email"></h6>
+        <button type="button" id="log-out" class="btn btn-outline-dark btn-sm">Log Out</button>
+      </div>
+      <form class="contact100-form validate-form" name="seleccion" id="seleccion">
+        <span class="contact100-form-title">
+          <h2> Mujeres Unidas y Activas (MUA)</h2>
+          <h3>Una mujer a la vez...</h3>
+          <h3>Lista de Asistencia</h3>
+        </span>
+        <div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
+          <span class="label-input100">Nombre(s) *</span>
+          <input class="input100" type="text" name="nombre" id="nombre" placeholder="&#128105; Anote su Nombre(s)">
+        </div>
+        <div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Apellido">
+          <span class="label-input100">Apellido(s) *</span>
+          <input class="input100" type="text" name="apellido" id="apellido" placeholder="&#9997; Anote Apellido(s)">
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Numero de telefono">
+          <span class="label-input100">Telefono *</span>
+          <input class=" input100" type="text" name="phone" id="phone" placeholder="&#9742; Anote su numero de telefono">
+        </div>
+        <!--<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Edad">
+          <span class="label-input100">Edad (ejemplo 25-35) *</span>
+          <input class="input100" type="text" text="Edad" placeholder="&#128198; Anote su Edad ">
+        </div>-->
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Seleccione su Edad">
+          <span class="label-input100">Edad *</span>
+          <input  class="input100" type="text" id="t1" name="edad" id="edad" list="l1" required placeholder="&#128198; seleccione edad">
+            <datalist id="l1">
+            <option>18-25</option>
+            <option>26-35</option>
+            <option>36-45</option>
+            <option>46-55</option>
+            <option>56-65</option>
+            <option>66-75</option>
+            <option>76-a mas</option>
+            </datalist>
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Genero">
+          <span class="label-input100">Genero *</span>
+          <input class="input100" type="text" name="genero" id="genero" placeholder="&#127752; Anote el Genero que se identifica">
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Zip Code">
+          <span class="label-input100">Codigo Postal*</span>
+          <input class="input100" type="text" text="Codigo Postal" name="codigo" id="codigo" placeholder="&#128235; Anote su Codigo Postal">
+        </div>
+        <div class="wrap-input100 input100-select bg1">
+          <span class="label-input100"><h4>Programas de MUA *</h4></span>
+          <div>
+            <select class="js-select2" name="programas" id="programas">
+              <option>Seleccione 1 a 3</option>
+            </select>
+            <div class="dropDownSelect2"></div>
+          </div>
+          <div id="preparacion">
+            <div class="w-full dis-none js-show-service">
+              <div class="wrap-contact100-form-radio">
+                <span class="label-input100"><h5>Preparacion para el Trabajo</h5></span>
+                <div class="contact100-form-radio m-t-15">
+                  <input class="input-radio100" id="trabajos" type="checkbox" name="type-programas" value="trabajos">
+                  <label class="label-radio100" for="trabajos">
+                    Limpieza de casas con productos naturales
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="etapas" type="checkbox" name="type-programas" value="etapas">
+                  <label class="label-radio100" for="etapas">
+                    Etapas de los niños
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="educacion" type="checkbox" name="type-programas" value="educacion">
+                  <label class="label-radio100" for="educacion">
+                    Educacion financiera
+                  </label>
+                </div>
+                <div class="contact100-form-range-bar">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id ="apoyo">
+            <div class="w-full dis-none js-show-service">
+              <div class="wrap-contact100-form-radio">
+                <span class="label-input100"><h5>Programa de Apoyo</h5></span>
+                <div class="contact100-form-radio m-t-15">
+                  <input class="input-radio100" id="domestica" type="checkbox" name="type-apoyo" value="domestica">
+                  <label class="label-radio100" for="domestica">
+                    Violencia domestica
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="as" type="checkbox" name="type-apoyo" value="AS">
+                  <label class="label-radio100" for="as">
+                    Asalto Sexual
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="autoestima" type="checkbox" name="type-apoyo" value="autoestima">
+                  <label class="label-radio100" for="autoestima">
+                    Autoestima
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="salud" type="checkbox" name="type-apoyo" value="salud">
+                  <label class="label-radio100" for="salud">
+                    Salud Reproductiva
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="sana" type="checkbox" name="type-apoyo" value="sana">
+                  <label class="label-radio100" for="sana">
+                    Alimentacion Sana
+                  </label>
+                </div>
+              </div>
+              <div class="dropDownSelect2"></div>
+            </div>
+          </div>
+          <div id="raices">
+            <div class="w-full dis-none js-show-service">
+              <div class="wrap-contact100-form-radio">
+                <span class="label-input100"><h5>Campaña</h5></span>
+                <div class="contact100-form-radio m-t-15">
+                  <input class="input-radio100" id="cpr" type="checkbox" name="campaña" value="CPR">
+                  <label class="label-radio100" for="cpr">
+                    Taller CPR (RCP)
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="universidad" type="checkbox" name="campaña" value="universidad">
+                  <label class="label-radio100" for="universidad">
+                    Universidad MUA
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="inmigracion" type="checkbox" name="campaña" value="inmigracion">
+                  <label class="label-radio100" for="inmigracion">
+                    Conozca sus Derechos (Inmigracion)
+                  </label>
+                </div>
+                <div class="contact100-form-radio">
+                  <input class="input-radio100" id="hogar" type="checkbox" name="campaña" value="hogar">
+                  <label class="label-radio100" for="hogar">
+                    Trabajadoras del Hogar
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="fondos">
+            <div class="w-full dis-none js-show-service">
+              <div class="wrap-contact100-form-radio">
+                <span class="label-input100"><h5>Recaudacion de Fondos</h5></span>
+                <div class="contact100-form-radio m-t-15">
+                  <input class="input-radio100" id="recaudacion" type="checkbox" name="participacion" value="recaudacion">
+                  <label class="label-radio100" for="recaudacion">
+                    Comite de Recaudacion (Participacion)
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-contact100-form-btn">
+          <button type="button" class="contact100-form-btn disabled" id="finalizar" style="display: none;" disabled>
+            <span>
+              Finalizar
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+<!--===============================================================================================-->
+  <div class="modal" tabindex="-1" role="dialog" id="otra">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Gracias</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="lead">Quien mas esta ahi ?</p>
+        </div>
+        <div class="modal-footer">
+          <i class="fa fa-refresh fa-spin fa-2x fa-fw" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--===============================================================================================-->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+  <script>
+    $(".js-select2").each(function(){
+      $(this).select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $(this).next('.dropDownSelect2')
+      });
+
+      $(".js-select2").each(function(){
+        $(this).on('select2:close', function (e){
+          if($(this).val() == "Por favor Seleccione") {
+            $('.js-show-service').slideUp();
+          } else {
+            $('.js-show-service').slideUp();
+            $('.js-show-service').slideDown();
+          }
+        });
+      });
+    });
+  </script>
+  <!--===============================================================================================-->
+  <!--
+    Se agrega la libreria completa de Firebase, ya que este
+    en produccion se cambia solo las funciones que se necessitan.
+  -->
+  <script>
   // Si obtiene una referencia a la base de datos
   var database = firebase.database();
 
   // Funcion que guarda los datos
-	// que se obtienen directamente del DOM
-	function writeSignIn(newSignInId) {
-		// Se preparan unos valores
-		var signdate = Date();
+  // que se obtienen directamente del DOM
+  function writeSignIn(newSignInId) {
+    // Se preparan unos valores
+    var signdate = Date();
 
-		firebase.database().ref('signins/' + newSignInId ).set({
-			nombre: document.getElementById("nombre").value,
-			apellido: document.getElementById("apellido").value,
-			phone: document.getElementById("phone").value,
-			t1: document.getElementById("t1").value,
-			genero: document.getElementById("genero").value,
-			codigo: document.getElementById("codigo").value,
+    firebase.database().ref('signins/' + newSignInId ).set({
+      nombre: document.getElementById("nombre").value,
+      apellido: document.getElementById("apellido").value,
+      phone: document.getElementById("phone").value,
+      t1: document.getElementById("t1").value,
+      genero: document.getElementById("genero").value,
+      codigo: document.getElementById("codigo").value,
 
-			//programas: document.getElementById("programas").value,
-			trabajos: document.getElementById("trabajos").checked,
-			etapas: document.getElementById("etapas").checked,
-			educacion: document.getElementById("educacion").checked,
+      trabajos: document.getElementById("trabajos").checked,
+      etapas: document.getElementById("etapas").checked,
+      educacion: document.getElementById("educacion").checked,
 
-			domestica: document.getElementById("domestica").checked,
-			as: document.getElementById("as").checked,
-			autoestima: document.getElementById("autoestima").checked,
-			salud: document.getElementById("salud").checked,
-			sana: document.getElementById("sana").checked,
+      domestica: document.getElementById("domestica").checked,
+      as: document.getElementById("as").checked,
+      autoestima: document.getElementById("autoestima").checked,
+      salud: document.getElementById("salud").checked,
+      sana: document.getElementById("sana").checked,
 
-			cpr: document.getElementById("cpr").checked,
-			universidad: document.getElementById("universidad").checked,
-			inmigracion: document.getElementById("inmigracion").checked,
-			hogar: document.getElementById("hogar").checked,
-			recaudacion: document.getElementById("recaudacion").checked,
+      cpr: document.getElementById("cpr").checked,
+      universidad: document.getElementById("universidad").checked,
+      inmigracion: document.getElementById("inmigracion").checked,
+      hogar: document.getElementById("hogar").checked,
+      recaudacion: document.getElementById("recaudacion").checked,
 
-			creado: signdate.toString()
-		}, function(error) {
-			if (error) {
-				console.log( error );
-			} else {
-				console.log( 'Se guardo, yay !' );
-			}
-		});
-	}
+      creado: firebase.database.ServerValue.TIMESTAMP,
+      fecha: signdate.toString(),
+      useremail: document.getElementById('user_email').textContent,
+      actividad: JSON.parse(localStorage.getItem('actividad'))
 
-	// Obtener elemento buton de finalizar
-	var finalizarButton = document.getElementById('finalizar');
+    }, function(error) {
+      if (error) {
+        console.log( error );
+      } else {
+        console.log( 'Se guardo, yay !' );
+      }
+    });
+  }
 
-	// En finalizar, se guardan los datos a firebase
-	finalizarButton.addEventListener('click', function(e) {
-		//Para que no se mueva la pagina (no reload yet)
-		e.preventDefault();
+  // Obtener elemento buton de finalizar
+  var finalizarButton = document.getElementById('finalizar');
 
-		//TODO: si pasa validacion, se guarda
+  // En finalizar, se guardan los datos a firebase
+  finalizarButton.addEventListener('click', function(e) {
+    //Para que no se mueva la pagina (no reload yet)
+    e.preventDefault();
 
-		// Se genera un ID para una nueva Signin
-		var newSignInId = database.ref().child('signins').push().key;
+    //TODO: si pasa validacion, se guarda
 
-		// Se llama la funcion que guardar los datos
-		writeSignIn(newSignInId);
+    // Se genera un ID para una nueva Signin
+    var newSignInId = database.ref().child('signins').push().key;
 
-		//TODO: reload page after confirmation
-		// Envia un Alert o Modal
-		$('#otra').modal('show');
+    // Se llama la funcion que guardar los datos
+    writeSignIn(newSignInId);
 
-		// Espera X segundos o y reload page
-		window.setTimeout(function() {
-			window.location.href = self.location;
-		}, 5000);
+    //TODO: reload page after confirmation
+    // Envia un Alert o Modal
+    $('#otra').modal('show');
 
-	});
+    // Espera X segundos o y reload page
+    window.setTimeout(function() {
+      window.location.href = self.location;
+    }, 4000);
 
-</script>
+  });
 
+  // Handle user logout button click
+  document.getElementById('log-out').addEventListener('click', function() {
+    // Se elimina la Actividad seleccionada
+    localStorage.clear();
+    firebase.auth().signOut();
+  });
+
+  </script>
 <!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
+  <script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-	<script src="js/seleccion.js"></script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="js/main.js"></script>
+  <script src="js/seleccion.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
 
 </body>
 </html>

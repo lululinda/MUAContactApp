@@ -1,79 +1,107 @@
-
 (function ($) {
-    "use strict";
+  "use strict";
 
+  /*==================================================================
+  [ Flujo de Applicacion - Seleccion ]*/
+  var actividadSelecionada = JSON.parse(localStorage.getItem('actividad')) || null;
+  $('#actividad').val(actividadSelecionada).trigger('change');
 
-    /*==================================================================
-    [ Validate after type ]*/
-    $('.validate-input .input100').each(function(){
-        $(this).on('blur', function(){
-            if(validate(this) == false){
-                showValidate(this);
-            }
-            else {
-                $(this).parent().addClass('true-validate');
-            }
-        })    
-    })
-  
-  
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
-
-    $('.validate-form').on('submit',function(){
-        var check = true;
-
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
-
-        return check;
+  if( actividadSelecionada !== null ) {
+    //la Activadad ya esta seleccionada - no se necessario enseñar la seleccion
+      //Hide Seleccion Container
+      $('#actividadesSeleccion').hide();
+      //Show Contacto Formulario
+      $('#form-container').show();
+  } else {
+    $('#actividad').select2({
+      width: '80%',
+      placeholder: "Seleciona una Actividad",
+      allowClear: true
     });
 
-
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-           $(this).parent().removeClass('true-validate');
-        });
+    $('#actividad').on('select2:select', function (e) {
+      var data = e.params.data;
+      console.log(data);
+      actividadSelecionada = data.id;
+      $('#actividades-guardar').show().removeAttr("disabled").removeClass("disabled");
     });
 
-     function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
-        }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
-        }
+    $("#actividades-guardar").click(function(e) {
+      e.preventDefault();
+
+      //se guardar la option localmente
+      localStorage.setItem('actividad', JSON.stringify(actividadSelecionada));
+      //se esconde el Container Select de Actividades
+      $('#actividadesSeleccion').hide();
+      //se ensigna el Container Formulario de Contactos
+      $('#form-container').show();
+    });
+  }
+
+
+  /*==================================================================
+  [ Validate after type ]*/
+  $('.validate-input .input100').each(function(){
+    $(this).on('blur', function(){
+      if(validate(this) == false){
+        showValidate(this);
+      } else {
+        $(this).parent().addClass('true-validate');
+      }
+    });
+  });
+
+  /*==================================================================
+  [ Validate ]*/
+  var input = $('.validate-input .input100');
+
+  $('.validate-form').on('submit',function(){
+    var check = true;
+
+    for(var i=0; i<input.length; i++) {
+      if(validate(input[i]) == false){
+        showValidate(input[i]);
+        check=false;
+      }
     }
+    return check;
+  });
 
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
+  $('.validate-form .input100').each(function(){
+    $(this).focus(function(){
+      hideValidate(this);
+      $(this).parent().removeClass('true-validate');
+    });
+  });
 
-        $(thisAlert).addClass('alert-validate');
-
-        $(thisAlert).append('<span class="btn-hide-validate">&#xf136;</span>')
-        $('.btn-hide-validate').each(function(){
-            $(this).on('click',function(){
-               hideValidate(this);
-            });
-        });
+  function validate (input) {
+    if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+      if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+        return false;
+      }
+    } else {
+      if($(input).val().trim() == ''){
+        return false;
+      }
     }
+  }
 
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-        $(thisAlert).removeClass('alert-validate');
-        $(thisAlert).find('.btn-hide-validate').remove();
-    }
-    
-    
+  function showValidate(input) {
+    var thisAlert = $(input).parent();
+
+    $(thisAlert).addClass('alert-validate');
+    $(thisAlert).append('<span class="btn-hide-validate">&#xf136;</span>');
+    $('.btn-hide-validate').each(function(){
+      $(this).on('click',function(){
+        hideValidate(this);
+      });
+    });
+  }
+
+  function hideValidate(input) {
+    var thisAlert = $(input).parent();
+    $(thisAlert).removeClass('alert-validate');
+    $(thisAlert).find('.btn-hide-validate').remove();
+  }
 
 })(jQuery);
