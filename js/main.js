@@ -7,7 +7,7 @@
 
   //console.log( actividadSelecionadas );
 
-  if( actividadSelecionadas.length > 0 ) {
+  if( actividadSelecionadas !== undefined && actividadSelecionadas.length > 0 ) {
     //la Activadad ya esta seleccionada - no se necessario enseñar la seleccion
       // Esconder container de seleccion
       $('#actividadesSeleccion').hide();
