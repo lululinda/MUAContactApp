@@ -87,9 +87,13 @@
   * @param {!firebase.User} user
   */
   var handleSignedInUser = function(user) {
-    if( JSON.parse(localStorage.getItem('actividad')) == null ) {
+    //console.log( JSON.parse(localStorage.getItem('actividades')) );
+    if( JSON.parse(localStorage.getItem('actividades')) == null ) {
       document.getElementById('actividadesSeleccion').style.display = '';
+    } else {
+      document.getElementById('form-container').style.display = '';
     }
+
     document.getElementById('user_email').textContent = user.email;
   };
 
@@ -116,57 +120,101 @@
 <body>
   <div id="firebaseui-auth-container"></div>
 
-  <div id="actividadesSeleccion" style="display: none;">
-    <h2 class="actividades-title"><i class="fa fa-home"></i> MUA Actividades</h2>
-    <div class="wrap-actividadesSeleccion">
-      <select name="actividad" id="actividad">
-        <option value=""></option>
-        <optgroup data-icon="fa-coffee" label='Reuniones Generales'>
-          <option value="Reuniones:San Francisco">San Francisco</option>
-          <option value="Reuniones:Oakland">Oakland</option>
-          <option value="Reuniones:Union City">Union City</option>
-        </optgroup>
-        <optgroup data-icon="fa-comments" label='Comites'>
-          <option value="Comites:Raices">Raices</option>
-          <option value="Comites:Consejeras y Facilitadoras">Consejeras y Facilitadoras</option>
-          <option value="Comites:Asalto Sexual">Asalto Sexual</option>
-          <option value="Comites:Recaudacion">Recaudacion</option>
-        </optgroup>
-        <optgroup data-icon="fa-briefcase" label='Talleres'>
-          <option value="Talleres:Conozca sus Derechos">Conozca sus Derechos</option>
-          <option value="Talleres:Negociacion de Salario y Contratos TH">Negociacion de Salario y Contratos TH</option>
-          <option value="Talleres:Mitos y Realidades de AS">Mitos y Realidades de AS</option>
-          <option value="Talleres:Impacto de VD en los niños">Impacto de VD en los niños</option>
-          <option value="Talleres:Universidad MUA">Universidad MUA</option>
-          <option value="Talleres:Recaudacion de fondos">Recaudacion de fondos</option>
-        </optgroup>
-        <optgroup data-icon="fa-briefcase" label='Entrenamientos'>
-          <option value="Entrenamientos:Liderazgo">Liderazgo</option>
-          <option value="Entrenamientos:Consejeras de VD">Consejeras de VD</option>
-          <option value="Entrenamientos:Facilitadoras">Facilitadoras</option>
-          <option value="Entrenamientos:Consejeras de AS">Consejeras de AS</option>
-          <option value="Entrenamientos:Recaudacion de fondos">Recaudacion de fondos</option>
-        </optgroup>
-        <optgroup data-icon="fa-graduation-cap" label='Alcance'>
-          <option value="Alcance:Conozca sus Derechos">Conozca sus Derechos</option>
-          <option value="Alcance:Asalto Sexual">Asalto Sexual</option>
-          <option value="Alcance:Violencia Domestica">Violencia Domestica</option>
-          <option value="Alcance:Trabajadoras del Hogar">Trabajadoras del Hogar</option>
-          <option value="Alcance:Acceso Linguistico">Acceso Linguistico</option>
-        </optgroup>
-        <optgroup data-icon="fa-book" label='Clase de Ingles'>
-          <option value="Clase:San Francisco">San Francisco</option>
-          <option value="Clase:Oakland">Oakland</option>
-          <option value="Clase:Union City">Union City</option>
-        </optgroup>
-        <optgroup data-icon="fa-bullhorn" label='Presentaciones'>
-          <option value="Presentaciones:Mesas de informacion">Mesas de informacion</option>
-          <option value="Presentaciones:Consulados">Consulados</option>
-          <option value="Presentaciones:Escuelas">Escuelas</option>
-          <option value="Presentaciones:Agencias">Agencias</option>
-        </optgroup>
-      </select>
-    <button type="button" class="disabled btn btn-outline-primary" id="actividades-guardar" style="display: none;" disabled>Pasar a Contactos</button>
+  <div class="container-contact100" id="actividadesSeleccion" style="display: none;">
+    <div class="wrap-contact100">
+      <form class="contact100-form validate-form" name="actividad" id="actividad">
+        <span class="contact100-form-title">
+          <h2>Mujeres Unidas y Activas (MUA)</h2>
+          <h3>Actividades de MUA </h3>
+        </span>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Seleccione su ciudad">
+          <span class="label-input100">&#9749; reuniones Generales  *</span>
+          <input class="input100" type="text" name="reunion" id="reunion" list="l1" placeholder="Seleccione Ciudad">
+            <datalist id="l1">
+              <option value="San Francisco">San Francisco</option>
+              <option value="Oakland">Oakland</option>
+              <option value="Union City">Union City</option>
+            </datalist>
+        </div> 
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="seleccione el comite">
+          <span class="label-input100">&#128109; reunion de Comites *</span>
+          <input class="input100" type="text" name="comite" id="comite" list="l2" placeholder="Seleccione El Comite">
+            <datalist id="l2">
+              <option value="Raices">Raices</option>
+              <option value="Consejeras VD y Facilitadoras">Consejeras VD y Facilitadoras</option>
+              <option value="Consejeras de Asalto Sexual">Consejeras de Asalto Sexual</option>
+              <option value="Recaudacion de fondos">Recaudacion de fondos</option>
+            </datalist>
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="seleccione alcance">
+          <span class="label-input100">&#128129; alcance *</span>
+          <input class="input100" type="text" name="alcance" id="alcance" list="l3" placeholder="Seleccione Alcance">
+            <datalist id="l3">
+              <option value="Violencia Domestica">Violencia Domestica</option>
+              <option value="Asalto Sexual">Asalto Sexual</option>
+              <option value="Trabajadoras del Hogar">Trabajadoras del Hogar</option>
+              <option value="Mesa de Informacion">Mesa de Informacion<option>
+              <option value="Consulado">Consulado</option>
+              </datalist>
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="seleccione talleres">
+          <span class="label-input100">&#128212; talleres en mua *</span>
+          <input class="input100" type="text" name="taller" id="taller" list="l4" placeholder="Seleccione  El Taller">
+            <datalist id="l4">
+              <option value="Conozca sus derechos">Conozca sus derechos</option>
+              <option value="Mitos y Realidades AS">Mitos y Realidades AS</option>
+              <option value="Impacto de la VD en los niños">Impacto de la VD en los niños</option>
+              <option value="Limpieza de Casas">Limpieza de Casas</option>
+              <option value="Etapas de los niños">Etapas de los niños</option>
+              <option value="Educacion Financiera">Educacion Financiera</option>
+              <option value="CPR">CPR</option>
+            </datalist>
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "seleccione entrenamiento">
+          <span class="label-input100">&#127891; entrenamientos*</span>
+          <input class="input100" type="text" name="entrenamiento" id="entrenamiento" list="l5" placeholder="Seleccione Entrenamiento">
+            <datalist id="l5">
+              <option value="Liderazgo">Liderazgo</option>
+              <option value="Consejeras VD">Consejeras VD</option>
+              <option value="Consejeras AS">Consejeras AS</option>
+              <option value="Recaudacion de Fondos">Recaudacion de Fondos</option>
+            </datalist>
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="seleccione lugar">
+          <span class="label-input100">&#128218;clase de ingles*</span>
+          <input class="input100" type="text" name="oficina" id="oficina" list="l6" placeholder="Seleccione Oficina">
+            <datalist id="l6">
+              <option value="San Francisco">San Francisco</option>
+              <option value="Oakland">Oakland</option>
+              <option value="Union City">Union City</option>
+            </datalist>
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="seleccione lugar">
+          <span class="label-input100">&#128226; movilizaciones*</span>
+          <input class="input100" type="text" name="lugar" id="lugar" list="l7" placeholder="Seleccione Lugar">
+            <datalist id="l7">
+              <option value="San Francisco">San Francisco</option>
+              <option value="Oakland">Oakland</option>
+              <option value="Union City">Union City</option>
+            </datalist>
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="seleccione evento">
+          <span class="label-input100">&#127881;&#36; eventos de Recaudacion*</span>
+          <input class="input100" type="text" name="evento" id="evento" list="l8" placeholder=" Seleccione Evento">
+          <datalist id="l8">
+            <option value="El Rio">El Rio</option>
+            <option value="Escritoras">Escritoras</option>
+            <option value="Eventos de Colaboracion">Eventos de Colaboracion</option>
+            <option value="Kermese">Kermese</option>
+            <option value="Otros">Otros</option>
+          </datalist>
+        </div>
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn" id="actividades-guardar" style="display: none;">
+            <span>Pasar a Contactos<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i></span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -190,7 +238,7 @@
           <span class="label-input100">Apellido(s) *</span>
           <input class="input100" type="text" name="apellido" id="apellido" placeholder="&#9997; Anote Apellido(s)">
         </div>
-        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Numero de telefono">
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Anote su Numero de telefono">
           <span class="label-input100">Telefono *</span>
           <input class=" input100" type="text" name="phone" id="phone" placeholder="&#9742; Anote su numero de telefono">
         </div>
@@ -200,8 +248,8 @@
         </div>-->
         <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Seleccione su Edad">
           <span class="label-input100">Edad *</span>
-          <input  class="input100" type="text" id="t1" name="edad" id="edad" list="l1" required placeholder="&#128198; seleccione edad">
-            <datalist id="l1">
+          <input  class="input100" type="text" name="edad" id="edad" list="ll1" required placeholder="&#128198; seleccione edad">
+            <datalist id="ll1">
             <option>18-25</option>
             <option>26-35</option>
             <option>36-45</option>
@@ -211,11 +259,11 @@
             <option>76-a mas</option>
             </datalist>
         </div>
-        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Genero">
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Anote su Genero">
           <span class="label-input100">Genero *</span>
           <input class="input100" type="text" name="genero" id="genero" placeholder="&#127752; Anote el Genero que se identifica">
         </div>
-        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Anote su Zip Code">
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Anote su Zip Code">
           <span class="label-input100">Codigo Postal*</span>
           <input class="input100" type="text" text="Codigo Postal" name="codigo" id="codigo" placeholder="&#128235; Anote su Codigo Postal">
         </div>
@@ -409,12 +457,13 @@
   function writeSignIn(newSignInId) {
     // Se preparan unos valores
     var signdate = Date();
+    var actividadSelecionadas = JSON.parse(localStorage.getItem('actividades')) || {};
 
     firebase.database().ref('signins/' + newSignInId ).set({
       nombre: document.getElementById("nombre").value,
       apellido: document.getElementById("apellido").value,
       phone: document.getElementById("phone").value,
-      t1: document.getElementById("t1").value,
+      edad: document.getElementById("edad").value,
       genero: document.getElementById("genero").value,
       codigo: document.getElementById("codigo").value,
 
@@ -437,7 +486,15 @@
       creado: firebase.database.ServerValue.TIMESTAMP,
       fecha: signdate.toString(),
       useremail: document.getElementById('user_email').textContent,
-      actividad: JSON.parse(localStorage.getItem('actividad'))
+
+      reunion: actividadSelecionadas.reunion,
+      comite: actividadSelecionadas.comite,
+      alcance: actividadSelecionadas.alcance,
+      taller: actividadSelecionadas.taller,
+      entrenamiento: actividadSelecionadas.entrenamiento,
+      oficina: actividadSelecionadas.oficina,
+      lugar: actividadSelecionadas.lugar,
+      evento: actividadSelecionadas.evento
 
     }, function(error) {
       if (error) {
