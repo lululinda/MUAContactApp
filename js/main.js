@@ -31,8 +31,8 @@
       actividadSelecionadas.alcance       = $("#alcance").val();
       actividadSelecionadas.taller        = $("#taller").val();
       actividadSelecionadas.entrenamiento = $("#entrenamiento").val();
-      actividadSelecionadas.oficina       = $("#oficina").val();
-      actividadSelecionadas.lugar         = $("#lugar").val();
+      actividadSelecionadas.clase       = $("#clase").val();
+      actividadSelecionadas.accion         = $("#accion").val();
       actividadSelecionadas.evento        = $("#evento").val();
 
       //console.log( actividadSelecionadas );
