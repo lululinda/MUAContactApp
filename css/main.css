@@ -190,7 +190,7 @@ div.firebaseui-container {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #e6e6e6;
+  background: #873cb2;
 }
 
 .wrap-contact100 {
@@ -246,7 +246,7 @@ div.firebaseui-container {
 
 .label-input100 {
   font-family: Montserrat-Italic;
-  font-size: 10px;
+  font-size: 22px;
   color: #9966a3;
   line-height: 1.5;
   text-transform: uppercase;
@@ -257,7 +257,7 @@ div.firebaseui-container {
   width: 100%;
   background: transparent;
   font-family: Montserrat-Italic;
-  font-size: 22px;
+  font-size: 20px;
   color: #555555;
   line-height: 1.2;
   padding-right: 15px;
