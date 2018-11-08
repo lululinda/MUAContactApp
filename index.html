@@ -87,9 +87,13 @@
   * @param {!firebase.User} user
   */
   var handleSignedInUser = function(user) {
-    if( JSON.parse(localStorage.getItem('actividad')) == null ) {
+    //console.log( JSON.parse(localStorage.getItem('actividades')) );
+    if( JSON.parse(localStorage.getItem('actividades')) == null ) {
       document.getElementById('actividadesSeleccion').style.display = '';
+    } else {
+      document.getElementById('form-container').style.display = '';
     }
+
     document.getElementById('user_email').textContent = user.email;
   };
 
@@ -244,8 +248,8 @@
         </div>-->
         <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Seleccione su Edad">
           <span class="label-input100">Edad *</span>
-          <input  class="input100" type="text" name="edad" id="edad" list="l1" required placeholder="&#128198; seleccione edad">
-            <datalist id="l1">
+          <input  class="input100" type="text" name="edad" id="edad" list="ll1" required placeholder="&#128198; seleccione edad">
+            <datalist id="ll1">
             <option>18-25</option>
             <option>26-35</option>
             <option>36-45</option>
@@ -453,12 +457,13 @@
   function writeSignIn(newSignInId) {
     // Se preparan unos valores
     var signdate = Date();
+    var actividadSelecionadas = JSON.parse(localStorage.getItem('actividades')) || {};
 
     firebase.database().ref('signins/' + newSignInId ).set({
       nombre: document.getElementById("nombre").value,
       apellido: document.getElementById("apellido").value,
       phone: document.getElementById("phone").value,
-      t1: document.getElementById("t1").value,
+      edad: document.getElementById("edad").value,
       genero: document.getElementById("genero").value,
       codigo: document.getElementById("codigo").value,
 
@@ -481,7 +486,15 @@
       creado: firebase.database.ServerValue.TIMESTAMP,
       fecha: signdate.toString(),
       useremail: document.getElementById('user_email').textContent,
-      actividad: JSON.parse(localStorage.getItem('actividad'))
+
+      reunion: actividadSelecionadas.reunion,
+      comite: actividadSelecionadas.comite,
+      alcance: actividadSelecionadas.alcance,
+      taller: actividadSelecionadas.taller,
+      entrenamiento: actividadSelecionadas.entrenamiento,
+      oficina: actividadSelecionadas.oficina,
+      lugar: actividadSelecionadas.lugar,
+      evento: actividadSelecionadas.evento
 
     }, function(error) {
       if (error) {
