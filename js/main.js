@@ -3,43 +3,51 @@
 
   /*==================================================================
   [ Flujo de Applicacion - Seleccion ]*/
-  var actividadSelecionada = JSON.parse(localStorage.getItem('actividad')) || null;
-  $('#actividad').val(actividadSelecionada).trigger('change');
+  var actividadSelecionadas = JSON.parse(localStorage.getItem('actividades')) || {};
 
-  if( actividadSelecionada !== null ) {
+  //console.log( actividadSelecionadas );
+
+  if( actividadSelecionadas.length > 0 ) {
     //la Activadad ya esta seleccionada - no se necessario enseñar la seleccion
-      //Hide Seleccion Container
+      // Esconder container de seleccion
       $('#actividadesSeleccion').hide();
-      //Show Contacto Formulario
+      // Ensegña Contacto Formulario
       $('#form-container').show();
-  } else {
-    /*
-    $('#actividad').select2({
-      width: '80%',
-      placeholder: "Seleciona una Actividad",
-      allowClear: true
-    });
 
-    $('#actividad').on('select2:select', function (e) {
-      var data = e.params.data;
-      console.log(data);
-      actividadSelecionada = data.id;
+  } else {
+
+    // Si se selecciona una Actividad, ya se puede ensegña el boton para guardar
+    $('#actividad input').on('change', function (e) {
+      //console.log( $(this).val() );
       $('#actividades-guardar').show().removeAttr("disabled").removeClass("disabled");
     });
 
     $("#actividades-guardar").click(function(e) {
       e.preventDefault();
 
+      //Se caputuran los Inputs de Seleccion
+      actividadSelecionadas.reunion       = $("#reunion").val();
+      actividadSelecionadas.comite        = $("#comite").val();
+      actividadSelecionadas.alcance       = $("#alcance").val();
+      actividadSelecionadas.taller        = $("#taller").val();
+      actividadSelecionadas.entrenamiento = $("#entrenamiento").val();
+      actividadSelecionadas.oficina       = $("#oficina").val();
+      actividadSelecionadas.lugar         = $("#lugar").val();
+      actividadSelecionadas.evento        = $("#evento").val();
+
+      //console.log( actividadSelecionadas );
+
       //se guardar la option localmente
-      localStorage.setItem('actividad', JSON.stringify(actividadSelecionada));
+      localStorage.setItem('actividades', JSON.stringify(actividadSelecionadas));
+
       //se esconde el Container Select de Actividades
       $('#actividadesSeleccion').hide();
-      //se ensigna el Container Formulario de Contactos
+
+      //se ensegña el Container Formulario de Contactos
       $('#form-container').show();
     });
-    */
-  }
 
+  }
 
   /*==================================================================
   [ Validate after type ]*/
