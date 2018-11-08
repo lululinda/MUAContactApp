@@ -13,6 +13,7 @@
       //Show Contacto Formulario
       $('#form-container').show();
   } else {
+    /*
     $('#actividad').select2({
       width: '80%',
       placeholder: "Seleciona una Actividad",
@@ -36,6 +37,7 @@
       //se ensigna el Container Formulario de Contactos
       $('#form-container').show();
     });
+    */
   }
 
 
