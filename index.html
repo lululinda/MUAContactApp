@@ -183,7 +183,7 @@
         </div>
         <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="seleccione lugar">
           <span class="label-input100">&#128218;clase de ingles*</span>
-          <input class="input100" type="text" name="oficina" id="oficina" list="l6" placeholder="Seleccione Oficina">
+          <input class="input100" type="text" name="clase" id="clase" list="l6" placeholder="Seleccione Oficina">
             <datalist id="l6">
               <option value="San Francisco">San Francisco</option>
               <option value="Oakland">Oakland</option>
@@ -192,7 +192,7 @@
         </div>
         <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="seleccione lugar">
           <span class="label-input100">&#128226; movilizaciones*</span>
-          <input class="input100" type="text" name="lugar" id="lugar" list="l7" placeholder="Seleccione Lugar">
+          <input class="input100" type="text" name="accion" id="accion" list="l7" placeholder="Seleccione Lugar">
             <datalist id="l7">
               <option value="San Francisco">San Francisco</option>
               <option value="Oakland">Oakland</option>
@@ -493,8 +493,8 @@
       alcance: actividadSelecionadas.alcance,
       taller: actividadSelecionadas.taller,
       entrenamiento: actividadSelecionadas.entrenamiento,
-      oficina: actividadSelecionadas.oficina,
-      lugar: actividadSelecionadas.lugar,
+      clase: actividadSelecionadas.clase,
+      accion: actividadSelecionadas.accion,
       evento: actividadSelecionadas.evento
 
     }, function(error) {
