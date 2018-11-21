@@ -231,6 +231,7 @@
           <h3>Una mujer a la vez...</h3>
           <h3>Lista de Asistencia</h3>
         </span>
+        <input type="checkbox" id="checkbox-1-1" class="primeravez-checkbox"> Primera Vez usando App click aqui<br>
         <div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
           <span class="label-input100">Nombre(s) *</span>
           <input class="input100" type="text" name="nombre" id="nombre" placeholder="&#128105; Anote su Nombre(s)">
@@ -268,6 +269,17 @@
           <span class="label-input100">Codigo Postal*</span>
           <input class="input100" type="text" text="Codigo Postal" name="codigo" id="codigo" placeholder="&#128235; Anote su Codigo Postal">
         </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Anote su Zip Code">
+          <span class="label-input100">Contacto Emergencia*</span>
+          <input class="input100" type="text" text="Contacto Emergencia" name="emergencia" id="emergencia" placeholder="&#128657; Anote contacto emergencia">
+        </div>
+
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Anote su Zip Code">
+          <span class="label-input100">Telefono Emergencia*</span>
+          <input class="input100" type="text" text="Telefono Emergencia" name="temergencia" id="temergencia" placeholder="&#128241; Anote el Telefono de Emergencia">
+        </div>
+
+
         <div class="wrap-input100 input100-select bg1">
           <span class="label-input100"><h4>Programas de MUA *</h4></span>
           <div>
@@ -467,6 +479,8 @@
       edad: document.getElementById("edad").value,
       genero: document.getElementById("genero").value,
       codigo: document.getElementById("codigo").value,
+      emergencia: document.getElementById("emergencia").value,
+      temergencia: document.getElementById("temergencia").value,
 
       trabajos: document.getElementById("trabajos").checked,
       etapas: document.getElementById("etapas").checked,
