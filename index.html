@@ -223,7 +223,7 @@
     <div class="wrap-contact100">
       <div class="float-right" id="log-out-info">
         <h6 id="user_email"></h6>
-        <button type="button" id="log-out" class="btn btn-outline-dark btn-sm">Log Out</button>
+        <button type="button" id="log-out" class="btn btn-outline-dark btn-sm">Cerrar sesion</button>
       </div>
       <form class="contact100-form validate-form" name="seleccion" id="seleccion">
         <span class="contact100-form-title">
@@ -231,7 +231,6 @@
           <h3>Una mujer a la vez...</h3>
           <h3>Lista de Asistencia</h3>
         </span>
-        <input type="checkbox" id="checkbox-1-1" class="primeravez-checkbox"> Primera Vez usando App click aqui<br>
         <div class="wrap-input100 validate-input bg1" data-validate="Por favor escriba su Nombre">
           <span class="label-input100">Nombre(s) *</span>
           <input class="input100" type="text" name="nombre" id="nombre" placeholder="&#128105; Anote su Nombre(s)">
@@ -281,7 +280,7 @@
 
 
         <div class="wrap-input100 input100-select bg1">
-          <span class="label-input100"><h4>Programas de MUA *</h4></span>
+          <span class="label-input100"><h4>Temas de interes*</h4></span>
           <div>
             <select class="js-select2" name="programas" id="programas">
               <option>Seleccione 1 a 3</option>
@@ -292,6 +291,7 @@
             <div class="w-full dis-none js-show-service">
               <div class="wrap-contact100-form-radio">
                 <span class="label-input100"><h5>Preparacion para el Trabajo</h5></span>
+                 
                 <div class="contact100-form-radio m-t-15">
                   <input class="input-radio100" id="trabajos" type="checkbox" name="type-programas" value="trabajos">
                   <label class="label-radio100" for="trabajos">
@@ -481,17 +481,17 @@
       codigo: document.getElementById("codigo").value,
       emergencia: document.getElementById("emergencia").value,
       temergencia: document.getElementById("temergencia").value,
-
+      
       trabajos: document.getElementById("trabajos").checked,
       etapas: document.getElementById("etapas").checked,
       educacion: document.getElementById("educacion").checked,
-
+      
       domestica: document.getElementById("domestica").checked,
       as: document.getElementById("as").checked,
       autoestima: document.getElementById("autoestima").checked,
       salud: document.getElementById("salud").checked,
       sana: document.getElementById("sana").checked,
-
+      
       cpr: document.getElementById("cpr").checked,
       universidad: document.getElementById("universidad").checked,
       inmigracion: document.getElementById("inmigracion").checked,
